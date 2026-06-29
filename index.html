@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CU Poster Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="hero">
+        <h1>CU Poster Hub</h1>
+        <p class="notice">📌 Browse posters, click <b>Add to Cart</b>, then open the Cart and send a screenshot of the
+            Product IDs to us on WhatsApp.</p>
+        <input id="search" placeholder="Search posters...">
+        <div id="filters">
+            <button data-cat="All">All</button>
+            <button data-cat="Anime">Anime</button>
+            <button data-cat="Movies">Movies</button>
+            <button data-cat="Cars">Cars</button>
+            <button data-cat="Gaming">Gaming</button>
+        </div>
+        <button id="cartBtn">🛒 Cart (<span id="count">0</span>)</button>
+    </header>
+
+    <main id="grid"></main>
+
+    <div id="cart" class="panel hidden">
+        <h2>Your Cart</h2>
+        <div id="cartItems"></div>
+        <p class="notice">Take a screenshot of the Product IDs below and send it on WhatsApp to place your order.</p>
+        <div id="codes"></div>
+        <a id="wa" target="_blank" href="https://wa.me/911234567890">Open WhatsApp</a>
+        <button onclick="toggleCart()">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
