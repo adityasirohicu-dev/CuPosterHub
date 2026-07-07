@@ -2,40 +2,582 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+    <link rel="icon" type="image/png" href="assets/logo/logo.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>CU Poster Hub</title>
+
+    <meta name="description" content="Premium Posters for Chandigarh University Students">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-    <header class="hero">
-        <h1>CU Poster Hub</h1>
-        <p class="notice">📌 Browse posters, click <b>Add to Cart</b>, then open the Cart and send a screenshot of the
-            Product IDs to us on WhatsApp.</p>
-        <input id="search" placeholder="Search posters...">
-        <div id="filters">
-            <button data-cat="All">All</button>
-            <button data-cat="Anime">Anime</button>
-            <button data-cat="Movies">Movies</button>
-            <button data-cat="Cars">Cars</button>
-            <button data-cat="Gaming">Gaming</button>
+
+    <!-- ========================================= -->
+    <!-- Background Glow -->
+    <!-- ========================================= -->
+
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- ========================================= -->
+    <!-- Navigation -->
+    <!-- ========================================= -->
+
+    <header class="navbar">
+
+        <div class="container">
+
+            <div class="nav-wrapper">
+
+                <!-- Logo -->
+
+                <a href="#" class="logo">
+
+                    <div class="logo-icon">
+
+    <img src="assets/logo/logo.png" alt="CU Poster Hub Logo">
+
+</div>
+
+                    <div class="logo-text">
+
+                        <h2>CU Poster Hub</h2>
+
+                        <span>Premium Posters</span>
+
+                    </div>
+
+                </a>
+
+                <!-- Navigation -->
+
+                <nav class="nav-links">
+
+                    <a class="active" href="#">Home</a>
+
+                    <a href="#">Posters</a>
+
+                    <a href="#">Categories</a>
+
+                    <a href="#">Design Ideas</a>
+
+                    <a href="#">About</a>
+
+                    <a href="#">Contact</a>
+
+                </nav>
+
+                <!-- Right Side -->
+
+                <div class="nav-right">
+
+                    <button class="icon-btn">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+                    <button class="icon-btn cart-btn">
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span id="cartCount">0</span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
-        <button id="cartBtn">🛒 Cart (<span id="count">0</span>)</button>
+
     </header>
 
-    <main id="grid"></main>
+    <!-- ========================================= -->
+    <!-- Announcement Ribbon -->
+    <!-- ========================================= -->
 
-    <div id="cart" class="panel hidden">
-        <h2>Your Cart</h2>
-        <div id="cartItems"></div>
-        <p class="notice">Take a screenshot of the Product IDs below and send it on WhatsApp to place your order.</p>
-        <div id="codes"></div>
-        <a id="wa" target="_blank" href="https://wa.me/911234567890">Open WhatsApp</a>
-        <button onclick="toggleCart()">Close</button>
+    <section class="announcement">
+
+        <div class="announcement-track">
+
+            <span>🚚 Delivered Inside Chandigarh University Campus</span>
+
+            <span>⭐ Premium Matte Quality Posters</span>
+
+            <span>🎉 Student Discounts Available</span>
+
+            <span>📦 Fast WhatsApp Order Confirmation</span>
+
+            <span>🎌 New Anime Posters Every Week</span>
+
+            <span>🚚 Delivered Inside Chandigarh University Campus</span>
+
+            <span>⭐ Premium Matte Quality Posters</span>
+
+            <span>🎉 Student Discounts Available</span>
+
+            <span>📦 Fast WhatsApp Order Confirmation</span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================================
+     HERO SECTION
+========================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-slider">
+
+            <!-- Slide 1 -->
+
+            <div class="hero-slide active">
+
+                <img src="assets/hero/hero1.jpg" alt="CU Poster Hub">
+
+                
+
+            </div>
+
+            <!-- Slide 2 -->
+
+            <div class="hero-slide">
+
+                <img src="assets/hero/hero2.png" alt="Car Posters">
+
+                
+
+            </div>
+
+            <!-- Slide 3 -->
+
+            <div class="hero-slide">
+
+                <img src="assets/hero/hero3.png" alt="Movie Posters">
+
+                
+
+            </div>
+
+            <!-- Slide 4 -->
+
+            <div class="hero-slide">
+
+                <img src="assets/hero/hero4.png" alt="Poster Collection">
+
+                
+
+            </div>
+
+            <!-- Navigation -->
+
+            <button class="hero-prev">
+                &#10094;
+            </button>
+
+            <button class="hero-next">
+                &#10095;
+            </button>
+
+            <!-- Dots -->
+
+            <div class="hero-dots">
+
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- ==========================================
+        FEATURED POSTERS
+========================================== -->
+
+<!-- ==========================================================
+FEATURED POSTERS
+========================================================== -->
+
+<section class="featured-posters">
+
+    <div class="container">
+
+        <div class="featured-header">
+
+            <div>
+
+                <span class="featured-tag">
+                    ⭐ FEATURED COLLECTION
+                </span>
+
+                <h2>Posters Everyone is Loving</h2>
+
+                <p>
+                    Handpicked premium posters specially selected for Chandigarh University students.
+                </p>
+
+            </div>
+
+            <a href="#" class="featured-view-all-top">
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- ROW 1 -->
+        <!-- ========================= -->
+
+        <div class="poster-row">
+
+            <button class="poster-arrow row1-left">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="poster-slider row1">
+
+            </div>
+
+            <button class="poster-arrow row1-right">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+        </div>
+
+        <!-- ========================= -->
+        <!-- ROW 2 -->
+        <!-- ========================= -->
+
+        <div class="poster-row">
+
+            <button class="poster-arrow row2-left">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            <div class="poster-slider row2">
+
+            </div>
+
+            <button class="poster-arrow row2-right">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+
+        </div>
+
+        <div class="featured-bottom">
+
+            <a href="#" class="featured-view-btn">
+
+                View All Posters
+
+            </a>
+
+        </div>
+
     </div>
 
-    <script src="script.js"></script>
+</section>
+
+
+   
+
+    <!-- ========================================= -->
+    <!-- Why Choose CU Poster Hub -->
+    <!-- ========================================= -->
+
+    <section class="why-us">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Why Choose CU Poster Hub?</h2>
+
+                <p>Everything you need to decorate your room beautifully.</p>
+
+            </div>
+
+            <div class="why-grid">
+
+                <div class="why-card">
+
+                    <i class="fa-solid fa-truck-fast"></i>
+
+                    <h3>Campus Delivery</h3>
+
+                    <p>Fast delivery inside Chandigarh University campus.</p>
+
+                </div>
+
+                <div class="why-card">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    <h3>Premium Quality</h3>
+
+                    <p>High-quality prints with vibrant colors.</p>
+
+                </div>
+
+                <div class="why-card">
+
+                    <i class="fa-solid fa-layer-group"></i>
+
+                    <h3>Huge Collection</h3>
+
+                    <p>Anime, Movies, Cars, Gaming and much more.</p>
+
+                </div>
+
+                <div class="why-card">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <h3>Easy Ordering</h3>
+
+                    <p>Place your order and receive confirmation on WhatsApp.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ========================================= -->
+    <!-- Design Ideas -->
+    <!-- ========================================= -->
+
+    <section class="design-ideas" id="designIdeas">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Design Your Room</h2>
+
+                <p>Need inspiration? Explore amazing room setups using posters.</p>
+
+            </div>
+
+            <div class="ideas-placeholder">
+
+                <i class="fa-solid fa-images"></i>
+
+                <h3>Coming Soon</h3>
+
+                <p>Images & videos of beautifully decorated rooms will appear here.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ========================================= -->
+    <!-- Footer -->
+    <!-- ========================================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <h2>CU Poster Hub</h2>
+
+                <p>Premium Posters for Chandigarh University Students.</p>
+
+            </div>
+
+            <div>
+
+                <h4>Quick Links</h4>
+
+                <a href="#">Home</a>
+                <a href="#">Posters</a>
+                <a href="#">Categories</a>
+                <a href="#">Contact</a>
+
+            </div>
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <p>WhatsApp</p>
+
+                <p>Instagram</p>
+
+                <p>Email</p>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © 2026 CU Poster Hub. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+    <!-- ========================================= -->
+    <!-- Cart Drawer -->
+    <!-- ========================================= -->
+
+    <aside id="cartDrawer">
+
+        <div class="cart-header">
+
+            <h2>Your Cart</h2>
+
+            <button id="closeCart">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div id="cartItems">
+
+        </div>
+
+        <div class="cart-footer">
+
+            <button class="checkout-btn">
+
+                Place Order
+
+            </button>
+
+        </div>
+
+    </aside>
+
+    
+    <!-- ===================================================== -->
+<!-- POSTER SIZE POPUP -->
+<!-- ===================================================== -->
+
+<div class="size-modal" id="sizeModal">
+
+    <div class="size-box">
+
+        <button class="close-size-modal" id="closeSizeModal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Select Poster Size</h2>
+
+        <p class="size-subtitle">
+            Choose your preferred size before adding to cart.
+        </p>
+
+        <div class="poster-preview">
+
+            <img
+                id="modalPosterImage"
+                src=""
+                alt="Poster Preview"
+            >
+
+        </div>
+
+        <h3 id="modalPosterName">
+            Poster
+        </h3>
+
+        <div class="size-options">
+
+            <div class="size-option" data-size="A6" data-price="15">
+
+                <span>A6</span>
+
+                <strong>₹15</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A5" data-price="25">
+
+                <span>A5</span>
+
+                <strong>₹25</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A4" data-price="35">
+
+                <span>A4</span>
+
+                <strong>₹35</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A3" data-price="55">
+
+                <span>A3</span>
+
+                <strong>₹55</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A2" data-price="95">
+
+                <span>A2</span>
+
+                <strong>₹95</strong>
+
+            </div>
+
+        </div>
+
+        <button id="confirmAddCart" class="confirm-cart-btn">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            Add To Cart
+
+        </button>
+
+    </div>
+
+</div>
+<script src="script.js"></script>
+
 </body>
 
 </html>
