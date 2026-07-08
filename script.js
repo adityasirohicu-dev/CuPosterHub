@@ -366,7 +366,12 @@ return `
 
 <div class="poster-image poster-open">
 
-<img src="${poster.image}" alt="${poster.name}">
+<img
+    src="${poster.image}"
+    alt="${poster.name}"
+    loading="lazy"
+    decoding="async"
+>
 
 <div class="poster-badge">
 
