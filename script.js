@@ -594,9 +594,9 @@ sizeOptions.forEach(option=>{
 ADD TO CART
 =========================== */
 
-confirmAddCart.addEventListener("click",()=>{
+confirmAddCart.addEventListener("click", () => {
 
-    if(!selectedSize){
+    if (!selectedSize) {
 
         alert("Please select a poster size.");
 
@@ -604,33 +604,247 @@ confirmAddCart.addEventListener("click",()=>{
 
     }
 
-    cart.push({
+    const existingItem = cart.find(item =>
 
-        name:selectedPoster.name,
+        item.name === selectedPoster.name &&
+        item.size === selectedSize
 
-        image:selectedPoster.image,
+    );
 
-        size:selectedSize,
+    if (existingItem) {
 
-        price:selectedPrice
+        existingItem.quantity++;
 
-    });
+    } else {
 
-    updateCartCount();
+        cart.push({
+
+            name: selectedPoster.name,
+
+            image: selectedPoster.image,
+
+            size: selectedSize,
+
+            price: Number(selectedPrice),
+
+            quantity: 1
+
+        });
+
+    }
+
+    updateCart();
 
     sizeModal.classList.remove("active");
 
-    sizeOptions.forEach(option=>{
+    sizeOptions.forEach(option => {
 
         option.classList.remove("active");
 
     });
 
-    selectedSize=null;
+    selectedSize = null;
 
-    selectedPrice=null;
+    selectedPrice = null;
 
 });
+
+
+/* ==========================================================
+RENDER CART
+========================================================== */
+
+const cartItems = document.getElementById("cartItems");
+
+function updateCart() {
+
+    updateCartCount();
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h3>Your cart is empty</h3>
+
+                <p>Add posters to see them here.</p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    let cartHTML = "";
+
+    let totalPrice = 0;
+
+    cart.forEach((item, index) => {
+
+        const itemTotal = item.price * item.quantity;
+
+        totalPrice += itemTotal;
+
+        cartHTML += `
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                    class="cart-item-image"
+                >
+
+                <div class="cart-item-details">
+
+                    <h3>${item.name}</h3>
+
+                    <span class="cart-item-size">
+                        Size: ${item.size}
+                    </span>
+
+                    <p class="cart-item-price">
+                        ₹${item.price}
+                    </p>
+
+                    <div class="cart-item-actions">
+
+                        <div class="quantity-control">
+
+                            <button onclick="decreaseQuantity(${index})">
+                                −
+                            </button>
+
+                            <span>
+                                ${item.quantity}
+                            </span>
+
+                            <button onclick="increaseQuantity(${index})">
+                                +
+                            </button>
+
+                        </div>
+
+                        <button
+                            class="remove-cart-item"
+                            onclick="removeCartItem(${index})"
+                        >
+
+                            <i class="fa-solid fa-trash"></i>
+
+                            Remove
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <strong class="cart-item-total">
+
+                    ₹${itemTotal}
+
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+    cartHTML += `
+
+        <div class="cart-summary">
+
+            <div>
+
+                <span>Total Items</span>
+
+                <strong>
+
+                    ${cart.reduce(
+                        (total, item) => total + item.quantity,
+                        0
+                    )}
+
+                </strong>
+
+            </div>
+
+            <div class="cart-total">
+
+                <span>Total Price</span>
+
+                <strong>
+
+                    ₹${totalPrice}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    `;
+
+    cartItems.innerHTML = cartHTML;
+
+}
+
+
+/* ==========================================================
+QUANTITY CONTROLS
+========================================================== */
+
+function increaseQuantity(index) {
+
+    cart[index].quantity++;
+
+    updateCart();
+
+}
+
+
+function decreaseQuantity(index) {
+
+    if (cart[index].quantity > 1) {
+
+        cart[index].quantity--;
+
+    } else {
+
+        cart.splice(index, 1);
+
+    }
+
+    updateCart();
+
+}
+
+
+/* ==========================================================
+REMOVE CART ITEM
+========================================================== */
+
+function removeCartItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+
+}
+
+
+/* ==========================================================
+INITIAL CART
+========================================================== */
+
+updateCart();
 
 
 console.log("CU Poster Hub Version 3 Loaded Successfully 🚀");
