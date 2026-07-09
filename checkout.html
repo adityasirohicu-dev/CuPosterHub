@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Checkout | CU Poster Hub</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/logo/favicon.png"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="checkout-page">
+
+
+<header class="checkout-navbar">
+
+    <div class="container checkout-nav-content">
+
+        <a
+            href="index.html"
+            class="checkout-logo"
+        >
+
+            <img
+                src="assets/logo/logo.png"
+                alt="CU Poster Hub"
+            >
+
+        </a>
+
+
+        <a
+            href="index.html"
+            class="back-to-cart"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Cart
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<main class="checkout-container">
+
+
+<div class="checkout-heading">
+
+    <span>
+
+        <i class="fa-solid fa-lock"></i>
+
+        SECURE CHECKOUT
+
+    </span>
+
+    <h1>Complete Your Order</h1>
+
+    <p>
+
+        Enter your details and complete the payment
+        to place your order.
+
+    </p>
+
+</div>
+
+
+<div class="checkout-layout">
+
+
+<!-- ==========================================
+CUSTOMER DETAILS
+========================================== -->
+
+<section class="checkout-form-side">
+
+
+<div class="checkout-section">
+
+    <div class="checkout-section-title">
+
+        <div>1</div>
+
+        <section>
+
+            <h2>Contact Information</h2>
+
+            <p>
+                We will contact you regarding delivery.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <div class="checkout-input-grid">
+
+
+        <div class="checkout-field">
+
+            <label for="customerName">
+
+                Full Name
+
+            </label>
+
+            <input
+                id="customerName"
+                type="text"
+                placeholder="Enter your full name"
+                required
+            >
+
+        </div>
+
+
+        <div class="checkout-field">
+
+            <label for="customerPhone">
+
+                Phone / WhatsApp Number
+
+            </label>
+
+            <input
+                id="customerPhone"
+                type="tel"
+                placeholder="Enter your mobile number"
+                maxlength="10"
+                required
+            >
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+STUDENT TYPE
+========================================== -->
+
+<div class="checkout-section">
+
+
+    <div class="checkout-section-title">
+
+        <div>2</div>
+
+        <section>
+
+            <h2>Student Type</h2>
+
+            <p>
+                Select whether you live inside
+                the CU hostel.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <div class="student-type-options">
+
+
+        <label class="student-type-card">
+
+            <input
+                type="radio"
+                name="studentType"
+                value="hosteller"
+            >
+
+            <i class="fa-solid fa-building"></i>
+
+            <span>
+
+                <strong>CU Hosteller</strong>
+
+                <small>
+                    I currently live in a CU hostel
+                </small>
+
+            </span>
+
+        </label>
+
+
+        <label class="student-type-card">
+
+            <input
+                type="radio"
+                name="studentType"
+                value="non-hosteller"
+            >
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>
+
+                <strong>Non-Hosteller</strong>
+
+                <small>
+                    I live outside the university
+                </small>
+
+            </span>
+
+        </label>
+
+
+    </div>
+
+
+    <!-- HOSTEL DETAILS -->
+
+
+    <div
+        class="hostel-details"
+        id="hostelDetails"
+    >
+
+
+        <div class="checkout-input-grid">
+
+
+            <div class="checkout-field">
+
+                <label for="hostelName">
+
+                    Hostel Name / Block
+
+                </label>
+
+                <input
+                    id="hostelName"
+                    type="text"
+                    placeholder="Example: NC-3"
+                >
+
+            </div>
+
+
+            <div class="checkout-field">
+
+                <label for="roomNumber">
+
+                    Room Number
+
+                </label>
+
+                <input
+                    id="roomNumber"
+                    type="text"
+                    placeholder="Enter room number"
+                >
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- ==========================================
+PAYMENT
+========================================== -->
+
+
+<div class="checkout-section">
+
+
+    <div class="checkout-section-title">
+
+        <div>3</div>
+
+        <section>
+
+            <h2>Complete Payment</h2>
+
+            <p>
+                Scan the QR using any UPI application.
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <div class="payment-box">
+
+
+        <div class="payment-heading">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <div>
+
+                <strong>Secure UPI Payment</strong>
+
+                <span>
+                    Google Pay • PhonePe • Paytm
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="demo-qr">
+
+            <i class="fa-solid fa-qrcode"></i>
+
+            <strong>DEMO QR</strong>
+
+            <span>
+                Replace with your payment QR
+            </span>
+
+        </div>
+
+
+        <div class="payment-total">
+
+            <span>Amount to Pay</span>
+
+            <strong id="checkoutPaymentTotal">
+
+                ₹0
+
+            </strong>
+
+        </div>
+
+
+        <p class="payment-warning">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            This is currently a demo QR.
+            Do not make a payment.
+
+        </p>
+
+
+        
+
+
+        <!-- ==========================================
+UPI PAYMENT OPTIONS
+========================================== -->
+
+<div class="upi-payment-options">
+
+    <h3>
+
+        Pay Using Your Preferred UPI App
+
+    </h3>
+
+    <p>
+
+        Scan the QR code above, or open any
+        installed UPI application on your phone.
+
+    </p>
+
+
+    <div class="supported-upi-apps">
+
+        <div>
+
+            <i class="fa-brands fa-google-pay"></i>
+
+            Google Pay
+
+        </div>
+
+
+        <div>
+
+            <i class="fa-solid fa-mobile-screen"></i>
+
+            PhonePe
+
+        </div>
+
+
+        <div>
+
+            <i class="fa-solid fa-wallet"></i>
+
+            Paytm
+
+        </div>
+
+
+        <div>
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            Any UPI App
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="open-upi-btn"
+        id="openUpiApp"
+    >
+
+        <i class="fa-solid fa-mobile-screen-button"></i>
+
+        Open Any UPI App
+
+    </button>
+
+
+    <p class="upi-demo-message">
+
+        Payment app connection will be activated
+        after the official CU Poster Hub UPI ID is added.
+
+    </p>
+
+</div>
+
+
+<!-- ==========================================
+PAYMENT SCREENSHOT INSTRUCTIONS
+========================================== -->
+
+<div class="payment-instructions">
+
+    <div class="payment-instruction-icon">
+
+        <i class="fa-solid fa-camera"></i>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+
+            Upload Payment Confirmation
+
+        </h3>
+
+
+        <p>
+
+            After completing your payment,
+            return to this checkout page and
+            upload a clear screenshot showing
+            that the payment was successful.
+
+        </p>
+
+
+        <span>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Keep this checkout page open while
+            completing the payment.
+
+        </span>
+
+
+        <span>
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Your order and entered details are
+            saved on this device.
+
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+PAYMENT SCREENSHOT
+========================================== -->
+
+<div class="checkout-field">
+
+    <label>
+
+        Payment Screenshot
+
+    </label>
+
+
+    <label class="payment-upload">
+
+        <input
+            id="paymentScreenshot"
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+        >
+
+
+        <i
+            class="fa-solid fa-cloud-arrow-up"
+            id="uploadIcon"
+        ></i>
+
+
+        <strong id="uploadText">
+
+            Select Payment Screenshot
+
+        </strong>
+
+
+        <span id="uploadFileName">
+
+            PNG, JPG or WebP
+
+        </span>
+
+    </label>
+
+</div>
+
+
+    </div>
+
+
+</div>
+
+
+<button
+    class="submit-order-btn"
+    id="submitOrder"
+>
+
+    <i class="fa-solid fa-lock"></i>
+
+    Submit Order
+
+</button>
+
+
+<p class="checkout-contact-note">
+
+    After submitting your order, our team will
+    contact you through call or WhatsApp regarding delivery.
+
+</p>
+
+
+</section>
+
+
+<!-- ==========================================
+ORDER SUMMARY
+========================================== -->
+
+
+<aside class="checkout-summary">
+
+
+    <h2>Your Order</h2>
+
+
+    <div id="checkoutItems">
+
+    </div>
+
+
+    <div class="checkout-price-summary">
+
+
+        <div>
+
+            <span>Total Items</span>
+
+            <strong id="checkoutItemCount">
+
+                0
+
+            </strong>
+
+        </div>
+
+
+        <div class="checkout-final-total">
+
+            <span>Total Amount</span>
+
+            <strong id="checkoutTotal">
+
+                ₹0
+
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+</aside>
+
+
+</div>
+
+
+</main>
+
+
+<script>
+
+
+const checkoutCart =
+
+JSON.parse(
+
+    localStorage.getItem("cuPosterCart")
+
+) || [];
+
+
+const checkoutItems =
+
+document.getElementById("checkoutItems");
+
+
+const checkoutTotal =
+
+document.getElementById("checkoutTotal");
+
+
+const checkoutPaymentTotal =
+
+document.getElementById("checkoutPaymentTotal");
+
+
+const checkoutItemCount =
+
+document.getElementById("checkoutItemCount");
+
+
+let finalPrice = 0;
+
+let finalQuantity = 0;
+
+
+checkoutCart.forEach(item => {
+
+
+const itemTotal =
+
+Number(item.price) * item.quantity;
+
+
+finalPrice += itemTotal;
+
+finalQuantity += item.quantity;
+
+
+checkoutItems.innerHTML += `
+
+
+<div class="checkout-order-item">
+
+
+<img
+
+src="${item.image}"
+
+alt="${item.name}"
+
+>
+
+
+<div>
+
+
+<h3>
+
+${item.name}
+
+</h3>
+
+
+<p>
+
+Size: ${item.size}
+
+</p>
+
+
+<span>
+
+₹${item.price}
+
+× ${item.quantity}
+
+</span>
+
+
+</div>
+
+
+<strong>
+
+₹${itemTotal}
+
+</strong>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+checkoutTotal.textContent =
+
+`₹${finalPrice}`;
+
+
+checkoutPaymentTotal.textContent =
+
+`₹${finalPrice}`;
+
+
+checkoutItemCount.textContent =
+
+finalQuantity;
+
+
+/* HOSTEL SELECTION */
+
+
+const studentOptions =
+
+document.querySelectorAll(
+
+'input[name="studentType"]'
+
+);
+
+
+const hostelDetails =
+
+document.getElementById(
+
+"hostelDetails"
+
+);
+
+
+studentOptions.forEach(option => {
+
+
+option.addEventListener(
+
+"change",
+
+()=>{
+
+
+if(
+
+option.value === "hosteller"
+
+){
+
+
+hostelDetails.classList.add(
+
+"active"
+
+);
+
+
+}
+
+
+else{
+
+
+hostelDetails.classList.remove(
+
+"active"
+
+);
+
+
+}
+
+
+});
+
+
+});
+/* ==========================================================
+SAVE AND RESTORE CHECKOUT DETAILS
+========================================================== */
+
+const checkoutFields = [
+
+    "customerName",
+
+    "customerPhone",
+
+    "hostelName",
+
+    "roomNumber"
+
+];
+
+
+checkoutFields.forEach(fieldId => {
+
+    const field =
+
+    document.getElementById(fieldId);
+
+
+    const savedValue =
+
+    localStorage.getItem(
+
+        `cuCheckout_${fieldId}`
+
+    );
+
+
+    if(savedValue){
+
+        field.value = savedValue;
+
+    }
+
+
+    field.addEventListener(
+
+        "input",
+
+        ()=>{
+
+            localStorage.setItem(
+
+                `cuCheckout_${fieldId}`,
+
+                field.value
+
+            );
+
+        }
+
+    );
+
+});
+
+
+/* ==========================================================
+SAVE STUDENT TYPE
+========================================================== */
+
+const savedStudentType =
+
+localStorage.getItem(
+
+    "cuCheckout_studentType"
+
+);
+
+
+if(savedStudentType){
+
+    const savedOption =
+
+    document.querySelector(
+
+        `input[name="studentType"][value="${savedStudentType}"]`
+
+    );
+
+
+    if(savedOption){
+
+        savedOption.checked = true;
+
+
+        if(
+
+            savedStudentType ===
+
+            "hosteller"
+
+        ){
+
+            hostelDetails.classList.add(
+
+                "active"
+
+            );
+
+        }
+
+    }
+
+}
+
+
+studentOptions.forEach(option=>{
+
+    option.addEventListener(
+
+        "change",
+
+        ()=>{
+
+            localStorage.setItem(
+
+                "cuCheckout_studentType",
+
+                option.value
+
+            );
+
+        }
+
+    );
+
+});
+
+
+/* ==========================================================
+PAYMENT SCREENSHOT SELECTED
+========================================================== */
+
+const paymentScreenshot =
+
+document.getElementById(
+
+    "paymentScreenshot"
+
+);
+
+
+const uploadIcon =
+
+document.getElementById(
+
+    "uploadIcon"
+
+);
+
+
+const uploadText =
+
+document.getElementById(
+
+    "uploadText"
+
+);
+
+
+const uploadFileName =
+
+document.getElementById(
+
+    "uploadFileName"
+
+);
+
+
+paymentScreenshot.addEventListener(
+
+"change",
+
+()=>{
+
+
+const selectedFile =
+
+paymentScreenshot.files[0];
+
+
+if(!selectedFile){
+
+return;
+
+}
+
+
+uploadIcon.className =
+
+"fa-solid fa-circle-check";
+
+
+uploadText.textContent =
+
+"Payment Screenshot Attached";
+
+
+uploadFileName.textContent =
+
+selectedFile.name;
+
+
+paymentScreenshot
+.closest(".payment-upload")
+.classList.add(
+
+"file-selected"
+
+);
+
+
+});
+
+
+/* ==========================================================
+DEMO UPI BUTTON
+========================================================== */
+
+document
+.getElementById("openUpiApp")
+.addEventListener(
+
+"click",
+
+()=>{
+
+
+alert(
+
+"UPI payment will be activated after the official CU Poster Hub UPI ID is added."
+
+);
+
+
+});
+
+
+/* SUBMIT ORDER */
+
+
+document
+.getElementById("submitOrder")
+.addEventListener(
+
+"click",
+
+()=>{
+
+
+alert(
+
+"Order submission will be connected when the backend is added."
+
+);
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
