@@ -144,19 +144,23 @@ if(closeCart){
 // CLOSE CART WHEN CLICKING OUTSIDE
 // ==========================================================
 
-document.addEventListener("click",(e)=>{
+document.addEventListener("click", (e) => {
 
-    if(!cartDrawer) return;
+    if (!cartDrawer || !cartButton) return;
 
-    if(
+    const clickedInsideCart = e
+        .composedPath()
+        .includes(cartDrawer);
 
+    const clickedCartButton = e
+        .composedPath()
+        .includes(cartButton);
+
+    if (
         cartDrawer.classList.contains("open") &&
-
-        !cartDrawer.contains(e.target) &&
-
-        !cartButton.contains(e.target)
-
-    ){
+        !clickedInsideCart &&
+        !clickedCartButton
+    ) {
 
         cartDrawer.classList.remove("open");
 
@@ -846,5 +850,56 @@ INITIAL CART
 
 updateCart();
 
+/* ==========================================================
+PROCEED TO CHECKOUT
+========================================================== */
+
+const checkoutButton =
+
+document.querySelector(
+
+".checkout-btn"
+
+);
+
+
+checkoutButton.addEventListener(
+
+"click",
+
+()=>{
+
+
+if(cart.length === 0){
+
+
+alert(
+
+"Your cart is empty."
+
+);
+
+
+return;
+
+
+}
+
+
+localStorage.setItem(
+
+"cuPosterCart",
+
+JSON.stringify(cart)
+
+);
+
+
+window.location.href =
+
+"checkout.html";
+
+
+});
 
 console.log("CU Poster Hub Version 3 Loaded Successfully 🚀");
