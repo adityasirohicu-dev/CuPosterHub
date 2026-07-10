@@ -5385,5 +5385,238 @@ SEPARATE MOBILE AND DESKTOP PAYMENT METHODS
 
 }
 /* ==========================================================
+DOUBLE-SIDED POSTER TAPE CART ADD-ON
+========================================================== */
+
+.cart-addon {
+
+    margin: 24px 0;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(124, 92, 252, 0.11),
+        rgba(255, 255, 255, 0.025)
+    );
+
+    border:
+
+    1px solid
+    rgba(124, 92, 252, 0.25);
+
+}
+
+
+.cart-addon-heading {
+
+    margin-bottom: 16px;
+
+}
+
+
+.cart-addon-heading span {
+
+    color: #a990ff;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+.cart-addon-heading h3 {
+
+    margin-top: 4px;
+
+    color: white;
+
+    font-size: 15px;
+
+}
+
+
+.cart-addon-product {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.cart-addon-icon {
+
+    width: 54px;
+
+    height: 54px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #b5a5ff;
+
+    font-size: 23px;
+
+    border-radius: 14px;
+
+    background:
+
+    rgba(124, 92, 252, 0.14);
+
+}
+
+
+.cart-addon-details {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.cart-addon-details h4 {
+
+    color: white;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+}
+
+
+.cart-addon-details p {
+
+    margin: 3px 0 5px;
+
+    color: #9d9da7;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+
+}
+
+
+.cart-addon-details strong {
+
+    color: #a990ff;
+
+    font-size: 15px;
+
+}
+
+
+.add-tape-btn {
+
+    min-width: 66px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    border:
+
+    1px solid
+    rgba(124, 92, 252, 0.4);
+
+    border-radius: 10px;
+
+    background:
+
+    rgba(124, 92, 252, 0.14);
+
+    color: #c2b7ff;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+.add-tape-btn:hover {
+
+    color: white;
+
+    background: #7c5cfc;
+
+}
+/* ==========================================================
+DOUBLE-SIDED POSTER TAPE
+========================================================== */
+
+function togglePosterTape() {
+
+    tapeAdded = !tapeAdded;
+
+    updateCart();
+
+}
+/* ==========================================================
+CHECKOUT TAPE ICON
+========================================================== */
+
+.checkout-tape-icon {
+
+    width: 70px;
+
+    height: 90px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    color: #a990ff;
+
+    font-size: 27px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(124, 92, 252, 0.2),
+        rgba(124, 92, 252, 0.07)
+    );
+
+    border:
+
+    1px solid
+    rgba(124, 92, 252, 0.25);
+
+}
+/* ==========================================================
    END OF STYLE.CSS
 ========================================================== */

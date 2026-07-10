@@ -173,6 +173,9 @@ document.addEventListener("click", (e) => {
 // ==========================================================
 
 let cart = [];
+let tapeAdded =
+
+localStorage.getItem("cuPosterTapeAdded") === "true";
 
 const cartCount = document.getElementById("cartCount");
 
@@ -637,7 +640,17 @@ confirmAddCart.addEventListener("click", () => {
 
     }
 
+    
+
     updateCart();
+
+sizeModal.classList.remove("active");
+
+setTimeout(() => {
+
+    cartDrawer.classList.add("open");
+
+}, 100);
 
     sizeModal.classList.remove("active");
 
@@ -687,6 +700,11 @@ function updateCart() {
     let cartHTML = "";
 
     let totalPrice = 0;
+    if (tapeAdded) {
+
+    totalPrice += 60;
+
+}
 
     cart.forEach((item, index) => {
 
@@ -760,6 +778,60 @@ function updateCart() {
         `;
 
     });
+    /* DOUBLE-SIDED POSTER TAPE ADD-ON */
+
+cartHTML += `
+
+    <div class="cart-addon">
+
+        <div class="cart-addon-heading">
+
+            <span>COMPLETE YOUR SETUP</span>
+
+            <h3>Mount Your Posters Easily</h3>
+
+        </div>
+
+
+        <div class="cart-addon-product">
+
+            <div class="cart-addon-icon">
+
+                <i class="fa-solid fa-tape"></i>
+
+            </div>
+
+
+            <div class="cart-addon-details">
+
+                <h4>Double-Sided Poster Tape</h4>
+
+                <p>
+                    Easy and secure poster mounting.
+                </p>
+
+                <strong>₹60</strong>
+
+            </div>
+
+
+            <button
+    type="button"
+    class="add-tape-btn ${tapeAdded ? "added" : ""}"
+    onclick="togglePosterTape()"
+>
+
+    <i class="fa-solid ${tapeAdded ? "fa-check" : "fa-plus"}"></i>
+
+    ${tapeAdded ? "Added" : "Add"}
+
+</button>
+
+        </div>
+
+    </div>
+
+`;
 
     cartHTML += `
 
@@ -771,10 +843,19 @@ function updateCart() {
 
                 <strong>
 
-                    ${cart.reduce(
-                        (total, item) => total + item.quantity,
-                        0
-                    )}
+                    ${
+
+    cart.reduce(
+
+        (total, item) =>
+
+            total + item.quantity,
+
+        0
+
+    ) + (tapeAdded ? 1 : 0)
+
+}
 
                 </strong>
 
@@ -797,6 +878,22 @@ function updateCart() {
     `;
 
     cartItems.innerHTML = cartHTML;
+
+}
+/* ==========================================================
+DOUBLE-SIDED POSTER TAPE
+========================================================== */
+
+function togglePosterTape() {
+
+    tapeAdded = !tapeAdded;
+
+    localStorage.setItem(
+        "cuPosterTapeAdded",
+        tapeAdded
+    );
+
+    updateCart();
 
 }
 
