@@ -1081,24 +1081,54 @@ paymentScreenshot
 
 
 /* ==========================================================
-DEMO UPI BUTTON
+/* ==========================================================
+OPEN UPI PAYMENT APP
 ========================================================== */
 
 document
 .getElementById("openUpiApp")
-.addEventListener(
+.addEventListener("click", () => {
 
-"click",
+    const upiId = "9140614503@ybl";
 
-()=>{
+    const receiverName = "CU Poster Hub LTD";
+
+    const paymentAmount = cart.reduce(
+
+        (total, item) => {
+
+            return total + (item.price * item.quantity);
+
+        },
+
+        0
+
+    );
 
 
-alert(
+    if (paymentAmount <= 0) {
 
-"UPI payment will be activated after the official CU Poster Hub UPI ID is added."
+        alert("Your cart is empty.");
 
-);
+        return;
 
+    }
+
+
+    const upiLink =
+
+        `upi://pay?pa=${encodeURIComponent(upiId)}` +
+
+        `&pn=${encodeURIComponent(receiverName)}` +
+
+        `&am=${paymentAmount.toFixed(2)}` +
+
+        `&cu=INR` +
+
+        `&tn=${encodeURIComponent("CU Poster Hub Order")}`;
+
+
+    window.location.href = upiLink;
 
 });
 
