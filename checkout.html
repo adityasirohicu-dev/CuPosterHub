@@ -421,42 +421,58 @@ UPI PAYMENT OPTIONS
 
     <div class="supported-upi-apps">
 
-        <div>
+    <button
+        type="button"
+        class="upi-app-option"
+        data-upi-app="gpay"
+    >
 
-            <i class="fa-brands fa-google-pay"></i>
+        <i class="fa-brands fa-google-pay"></i>
 
-            Google Pay
+        Google Pay
 
-        </div>
-
-
-        <div>
-
-            <i class="fa-solid fa-mobile-screen"></i>
-
-            PhonePe
-
-        </div>
+    </button>
 
 
-        <div>
+    <button
+        type="button"
+        class="upi-app-option"
+        data-upi-app="phonepe"
+    >
 
-            <i class="fa-solid fa-wallet"></i>
+        <i class="fa-solid fa-mobile-screen"></i>
 
-            Paytm
+        PhonePe
 
-        </div>
+    </button>
 
 
-        <div>
+    <button
+        type="button"
+        class="upi-app-option"
+        data-upi-app="paytm"
+    >
 
-            <i class="fa-solid fa-building-columns"></i>
+        <i class="fa-solid fa-wallet"></i>
 
-            Any UPI App
+        Paytm
 
-        </div>
+    </button>
 
-    </div>
+
+    <button
+        type="button"
+        class="upi-app-option"
+        data-upi-app="any"
+    >
+
+        <i class="fa-solid fa-building-columns"></i>
+
+        Any UPI App
+
+    </button>
+
+</div>
 
 
     <button
@@ -474,10 +490,11 @@ UPI PAYMENT OPTIONS
 
     <p class="upi-demo-message">
 
-        Payment app connection will be activated
-        after the official CU Poster Hub UPI ID is added.
+    After completing the payment,
+    return to this page and upload
+    the successful payment screenshot.
 
-    </p>
+</p>
 
 </div>
 
@@ -1081,24 +1098,26 @@ paymentScreenshot
 
 
 /* ==========================================================
-OPEN UPI PAYMENT APP
+UPI PAYMENT
 ========================================================== */
 
-document
-.getElementById("openUpiApp")
-.addEventListener("click", () => {
+const upiId = "9140614503@ybl";
 
-    const upiId = "9140614503@ybl";
+const receiverName = "CU Poster Hub LTD";
 
-    const receiverName = "CU Poster Hub LTD";
 
-    const paymentAmount = checkoutCart.reduce(
+function getPaymentAmount() {
+
+    return checkoutCart.reduce(
 
         (total, item) => {
 
             return total +
 
-            (Number(item.price) * Number(item.quantity));
+            (
+                Number(item.price) *
+                Number(item.quantity)
+            );
 
         },
 
@@ -1106,30 +1125,106 @@ document
 
     );
 
+}
+
+
+function createUpiPaymentLink() {
+
+    const paymentAmount =
+
+    getPaymentAmount();
+
 
     if (paymentAmount <= 0) {
 
         alert("Your cart is empty.");
+
+        return null;
+
+    }
+
+
+    const paymentNote =
+
+    "CU Poster Hub Order";
+
+
+    return (
+
+        "upi://pay" +
+
+        "?pa=" +
+
+        encodeURIComponent(upiId) +
+
+        "&pn=" +
+
+        encodeURIComponent(receiverName) +
+
+        "&am=" +
+
+        paymentAmount.toFixed(2) +
+
+        "&cu=INR" +
+
+        "&tn=" +
+
+        encodeURIComponent(paymentNote)
+
+    );
+
+}
+
+
+function openUpiPayment() {
+
+    const upiLink =
+
+    createUpiPaymentLink();
+
+
+    if (!upiLink) {
 
         return;
 
     }
 
 
-    const upiLink =
+    window.location.assign(
 
-        `upi://pay?pa=${encodeURIComponent(upiId)}` +
+        upiLink
 
-        `&pn=${encodeURIComponent(receiverName)}` +
+    );
 
-        `&am=${paymentAmount.toFixed(2)}` +
-
-        `&cu=INR` +
-
-        `&tn=${encodeURIComponent("CU Poster Hub Order")}`;
+}
 
 
-    window.location.href = upiLink;
+/* LARGE OPEN ANY UPI APP BUTTON */
+
+document
+.getElementById("openUpiApp")
+.addEventListener(
+
+    "click",
+
+    openUpiPayment
+
+);
+
+
+/* GOOGLE PAY, PHONEPE, PAYTM AND ANY UPI CARDS */
+
+document
+.querySelectorAll(".upi-app-option")
+.forEach(button => {
+
+    button.addEventListener(
+
+        "click",
+
+        openUpiPayment
+
+    );
 
 });
 
