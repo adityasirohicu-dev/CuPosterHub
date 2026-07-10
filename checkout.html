@@ -1081,7 +1081,6 @@ paymentScreenshot
 
 
 /* ==========================================================
-/* ==========================================================
 OPEN UPI PAYMENT APP
 ========================================================== */
 
@@ -1093,11 +1092,13 @@ document
 
     const receiverName = "CU Poster Hub LTD";
 
-    const paymentAmount = cart.reduce(
+    const paymentAmount = checkoutCart.reduce(
 
         (total, item) => {
 
-            return total + (item.price * item.quantity);
+            return total +
+
+            (Number(item.price) * Number(item.quantity));
 
         },
 
