@@ -1178,10 +1178,7 @@ function createUpiPaymentLink() {
 
 function openUpiPayment() {
 
-    const upiLink =
-
-    createUpiPaymentLink();
-
+    const upiLink = createUpiPaymentLink();
 
     if (!upiLink) {
 
@@ -1189,8 +1186,29 @@ function openUpiPayment() {
 
     }
 
+    const upiParameters =
 
-   window.location.href = upiLink;
+        upiLink.replace("upi://pay?", "");
+
+
+    const androidIntent =
+
+        "intent://pay?" +
+
+        upiParameters +
+
+        "#Intent;" +
+
+        "scheme=upi;" +
+
+        "action=android.intent.action.VIEW;" +
+
+        "category=android.intent.category.BROWSABLE;" +
+
+        "end";
+
+
+    window.location.href = androidIntent;
 
 }
 
