@@ -15,13 +15,13 @@ const nextBtn = document.querySelector(".hero-next");
 let currentHero = 0;
 let heroInterval;
 
-function showHero(index){
+function showHero(index) {
 
-    heroSlides.forEach(slide=>{
+    heroSlides.forEach(slide => {
         slide.classList.remove("active");
     });
 
-    heroDots.forEach(dot=>{
+    heroDots.forEach(dot => {
         dot.classList.remove("active");
     });
 
@@ -30,11 +30,11 @@ function showHero(index){
 
 }
 
-function nextHero(){
+function nextHero() {
 
     currentHero++;
 
-    if(currentHero >= heroSlides.length){
+    if (currentHero >= heroSlides.length) {
 
         currentHero = 0;
 
@@ -44,13 +44,13 @@ function nextHero(){
 
 }
 
-function previousHero(){
+function previousHero() {
 
     currentHero--;
 
-    if(currentHero < 0){
+    if (currentHero < 0) {
 
-        currentHero = heroSlides.length-1;
+        currentHero = heroSlides.length - 1;
 
     }
 
@@ -58,13 +58,13 @@ function previousHero(){
 
 }
 
-function startHero(){
+function startHero() {
 
-    heroInterval = setInterval(nextHero,5000);
+    heroInterval = setInterval(nextHero, 5000);
 
 }
 
-function resetHero(){
+function resetHero() {
 
     clearInterval(heroInterval);
 
@@ -72,7 +72,7 @@ function resetHero(){
 
 }
 
-if(heroSlides.length){
+if (heroSlides.length) {
 
     showHero(0);
 
@@ -80,7 +80,7 @@ if(heroSlides.length){
 
 }
 
-nextBtn?.addEventListener("click",()=>{
+nextBtn?.addEventListener("click", () => {
 
     nextHero();
 
@@ -88,7 +88,7 @@ nextBtn?.addEventListener("click",()=>{
 
 });
 
-prevBtn?.addEventListener("click",()=>{
+prevBtn?.addEventListener("click", () => {
 
     previousHero();
 
@@ -96,11 +96,11 @@ prevBtn?.addEventListener("click",()=>{
 
 });
 
-heroDots.forEach((dot,index)=>{
+heroDots.forEach((dot, index) => {
 
-    dot.addEventListener("click",()=>{
+    dot.addEventListener("click", () => {
 
-        currentHero=index;
+        currentHero = index;
 
         showHero(currentHero);
 
@@ -120,9 +120,9 @@ const cartDrawer = document.getElementById("cartDrawer");
 
 const closeCart = document.getElementById("closeCart");
 
-if(cartButton){
+if (cartButton) {
 
-    cartButton.addEventListener("click",()=>{
+    cartButton.addEventListener("click", () => {
 
         cartDrawer.classList.add("open");
 
@@ -130,9 +130,9 @@ if(cartButton){
 
 }
 
-if(closeCart){
+if (closeCart) {
 
-    closeCart.addEventListener("click",()=>{
+    closeCart.addEventListener("click", () => {
 
         cartDrawer.classList.remove("open");
 
@@ -175,13 +175,13 @@ document.addEventListener("click", (e) => {
 let cart = [];
 let tapeAdded =
 
-localStorage.getItem("cuPosterTapeAdded") === "true";
+    localStorage.getItem("cuPosterTapeAdded") === "true";
 
 const cartCount = document.getElementById("cartCount");
 
-function updateCartCount(){
+function updateCartCount() {
 
-    if(cartCount){
+    if (cartCount) {
 
         cartCount.textContent = cart.length;
 
@@ -195,19 +195,19 @@ updateCartCount();
 // SMOOTH SCROLL
 // ==========================================================
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-    anchor.addEventListener("click",function(e){
+    anchor.addEventListener("click", function (e) {
 
         const target = document.querySelector(this.getAttribute("href"));
 
-        if(!target) return;
+        if (!target) return;
 
         e.preventDefault();
 
         target.scrollIntoView({
 
-            behavior:"smooth"
+            behavior: "smooth"
 
         });
 
@@ -221,11 +221,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
 const navLinks = document.querySelectorAll(".nav-links a");
 
-navLinks.forEach(link=>{
+navLinks.forEach(link => {
 
-    link.addEventListener("click",()=>{
+    link.addEventListener("click", () => {
 
-        navLinks.forEach(item=>{
+        navLinks.forEach(item => {
 
             item.classList.remove("active");
 
@@ -243,17 +243,17 @@ navLinks.forEach(link=>{
 
 const navbar = document.querySelector(".navbar");
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 30){
+    if (window.scrollY > 30) {
 
-        navbar.style.background="rgba(47,47,51,.92)";
+        navbar.style.background = "rgba(47,47,51,.92)";
 
     }
 
-    else{
+    else {
 
-        navbar.style.background="rgba(47,47,51,.82)";
+        navbar.style.background = "rgba(47,47,51,.82)";
 
     }
 
@@ -280,94 +280,97 @@ window.addEventListener("scroll",()=>{
 
 const posters = [
 
-{
-    id:1,
-    name:"Naruto Poster 1",
-    image:"images/anime/naruto/AN-NAR-0001-A3.webp",
-    category:"Anime",
-    badge:"🔥 Best Seller"
-},
+    {
+        id: 1,
+        name: "Naruto Poster 1",
+        image: "images/anime/naruto/AN-NAR-0001-A3.webp",
+        category: "Anime",
+        badge: "🔥 Best Seller"
+    },
 
-{
-    id:2,
-    name:"Naruto Poster 2",
-    image:"images/anime/naruto/AN-NAR-0002-A3.webp",
-    category:"Anime",
-    badge:"⭐ Trending"
-},
+    {
+        id: 2,
+        name: "Naruto Poster 2",
+        image: "images/anime/naruto/AN-NAR-0002-A3.webp",
+        category: "Anime",
+        badge: "⭐ Trending"
+    },
 
-{
-    id:3,
-    name:"Naruto Poster 3",
-    image:"images/anime/naruto/AN-NAR-0003-A2.webp",
-    category:"Anime",
-    badge:"🔥 Popular"
-},
+    {
+        id: 3,
+        name: "Naruto Poster 3",
+        image: "images/anime/naruto/AN-NAR-0003-A2.webp",
+        category: "Anime",
+        badge: "🔥 Popular"
+    },
 
-{
-    id:4,
-    name:"Naruto Poster 4",
-    image:"images/anime/naruto/AN-NAR-0004-A4.webp",
-    category:"Anime",
-    badge:"✨ New"
-},
+    {
+        id: 4,
+        name: "Naruto Poster 4",
+        image: "images/anime/naruto/AN-NAR-0004-A4.webp",
+        category: "Anime",
+        badge: "✨ New"
+    },
 
-{
-    id:5,
-    name:"Naruto Poster 5",
-    image:"images/anime/naruto/AN-NAR-0005-A4.webp",
-    category:"Anime",
-    badge:"🔥 Best Seller"
-},
+    {
+        id: 5,
+        name: "Naruto Poster 5",
+        image: "images/anime/naruto/AN-NAR-0005-A4.webp",
+        category: "Anime",
+        badge: "🔥 Best Seller"
+    },
 
-{
-    id:6,
-    name:"Naruto Poster 6",
-    image:"images/anime/naruto/AN-NAR-0006-A3.webp",
-    category:"Anime",
-    badge:"⭐ Trending"
-},
+    {
+        id: 6,
+        name: "Naruto Poster 6",
+        image: "images/anime/naruto/AN-NAR-0006-A3.webp",
+        category: "Anime",
+        badge: "⭐ Trending"
+    },
 
-{
-    id:7,
-    name:"Naruto Poster 7",
-    image:"images/anime/naruto/AN-NAR-0007-A2.webp",
-    category:"Anime",
-    badge:"🔥 Popular"
-},
+    {
+        id: 7,
+        name: "Naruto Poster 7",
+        image: "images/anime/naruto/AN-NAR-0007-A2.webp",
+        category: "Anime",
+        badge: "🔥 Popular"
+    },
 
-{
-    id:8,
-    name:"Naruto Poster 8",
-    image:"images/anime/naruto/AN-NAR-0008-A3.webp",
-    category:"Anime",
-    badge:"✨ New"
-},
+    {
+        id: 8,
+        name: "Naruto Poster 8",
+        image: "images/anime/naruto/AN-NAR-0008-A3.webp",
+        category: "Anime",
+        badge: "✨ New"
+    },
 
-{
-    id:9,
-    name:"Naruto Poster 9",
-    image:"images/anime/naruto/AN-NAR-0009-A4.webp",
-    category:"Anime",
-    badge:"🔥 Best Seller"
-},
+    {
+        id: 9,
+        name: "Naruto Poster 9",
+        image: "images/anime/naruto/AN-NAR-0009-A4.webp",
+        category: "Anime",
+        badge: "🔥 Best Seller"
+    },
 
-{
-    id:10,
-    name:"Naruto Poster 10",
-    image:"images/anime/naruto/AN-NAR-0010-A4.webp",
-    category:"Anime",
-    badge:"⭐ Trending"
-}
+    {
+        id: 10,
+        name: "Naruto Poster 10",
+        image: "images/anime/naruto/AN-NAR-0010-A4.webp",
+        category: "Anime",
+        badge: "⭐ Trending"
+    }
 
 ];
 
-const row1=document.querySelector(".row1");
-const row2=document.querySelector(".row2");
+const row1 = document.querySelector(".row1");
 
-function createPosterCard(poster){
+const row2 = document.querySelector(".row2");
 
-return `
+const allPostersGrid = document.getElementById("allPostersGrid");
+
+function createPosterCard(poster) {
+
+    return `
 
 <div class="poster-card" data-id="${poster.id}">
 
@@ -434,69 +437,105 @@ data-image="${poster.image}"
 
 }
 
-posters.slice(0,5).forEach(p=>{
+/* ==========================================================
+   SHOW POSTERS ON HOME PAGE
+========================================================== */
 
-row1.innerHTML+=createPosterCard(p);
+if (row1 && row2) {
 
-});
+    posters.slice(0, 5).forEach(poster => {
 
-posters.slice(5,10).forEach(p=>{
+        row1.innerHTML += createPosterCard(poster);
 
-row2.innerHTML+=createPosterCard(p);
+    });
 
-});
+
+    posters.slice(5, 10).forEach(poster => {
+
+        row2.innerHTML += createPosterCard(poster);
+
+    });
+
+}
+
+
+/* ==========================================================
+   SHOW POSTERS ON ALL POSTERS PAGE
+========================================================== */
+
+if (allPostersGrid) {
+
+    posters.forEach(poster => {
+
+        allPostersGrid.innerHTML += createPosterCard(poster);
+
+    });
+
+
+    const visiblePosterCount =
+
+        document.getElementById("visiblePosterCount");
+
+
+    if (visiblePosterCount) {
+
+        visiblePosterCount.textContent = posters.length;
+
+    }
+
+}
 
 /* =========================
 SLIDER
 ========================= */
 
-document.querySelector(".row1-right").onclick=()=>{
+document.querySelector(".row1-right")?.addEventListener("click", () => {
 
-row1.scrollBy({
+    row1.scrollBy({
 
-left:900,
+        left: 900,
 
-behavior:"smooth"
+        behavior: "smooth"
 
-});
-
-};
-
-document.querySelector(".row1-left").onclick=()=>{
-
-row1.scrollBy({
-
-left:-900,
-
-behavior:"smooth"
+    });
 
 });
 
-};
+document.querySelector(".row1-left")?.addEventListener("click", () => {
 
-document.querySelector(".row2-right").onclick=()=>{
+    row1.scrollBy({
 
-row2.scrollBy({
+        left: -900,
 
-left:900,
+        behavior: "smooth"
 
-behavior:"smooth"
-
-});
-
-};
-
-document.querySelector(".row2-left").onclick=()=>{
-
-row2.scrollBy({
-
-left:-900,
-
-behavior:"smooth"
+    });
 
 });
 
-};
+document.querySelector(".row2-right")?.addEventListener("click", () => {
+
+    row2.scrollBy({
+
+        left: 900,
+
+        behavior: "smooth"
+
+    });
+
+});
+
+document.querySelector(".row2-left")?.addEventListener("click", () => {
+
+    row2.scrollBy({
+
+        left: -900,
+
+        behavior: "smooth"
+
+    });
+
+});
 /* ==========================================================
    SIZE POPUP
 ========================================================== */
@@ -524,27 +563,27 @@ let selectedPrice = null;
 OPEN POPUP
 =========================== */
 
-document.addEventListener("click",(e)=>{
+document.addEventListener("click", (e) => {
 
-    const button=e.target.closest(".add-cart-btn");
+    const button = e.target.closest(".add-cart-btn");
 
-    if(!button) return;
+    if (!button) return;
     console.log("Button clicked");
-console.log(button.dataset.name);
-console.log(button.dataset.image);
-console.log(sizeModal);
+    console.log(button.dataset.name);
+    console.log(button.dataset.image);
+    console.log(sizeModal);
 
-    selectedPoster={
+    selectedPoster = {
 
-        name:button.dataset.name,
+        name: button.dataset.name,
 
-        image:button.dataset.image
+        image: button.dataset.image
 
     };
 
-    modalPosterImage.src=selectedPoster.image;
+    modalPosterImage.src = selectedPoster.image;
 
-    modalPosterName.textContent=selectedPoster.name;
+    modalPosterName.textContent = selectedPoster.name;
 
     sizeModal.classList.add("active");
 
@@ -555,15 +594,15 @@ console.log(sizeModal);
 CLOSE
 =========================== */
 
-closeSizeModal.addEventListener("click",()=>{
+closeSizeModal?.addEventListener("click", () => {
 
     sizeModal.classList.remove("active");
 
 });
 
-sizeModal.addEventListener("click",(e)=>{
+sizeModal?.addEventListener("click", (e) => {
 
-    if(e.target===sizeModal){
+    if (e.target === sizeModal) {
 
         sizeModal.classList.remove("active");
 
@@ -576,11 +615,11 @@ sizeModal.addEventListener("click",(e)=>{
 SIZE SELECT
 =========================== */
 
-sizeOptions.forEach(option=>{
+sizeOptions.forEach(option => {
 
-    option.addEventListener("click",()=>{
+    option.addEventListener("click", () => {
 
-        sizeOptions.forEach(o=>{
+        sizeOptions.forEach(o => {
 
             o.classList.remove("active");
 
@@ -588,9 +627,9 @@ sizeOptions.forEach(option=>{
 
         option.classList.add("active");
 
-        selectedSize=option.dataset.size;
+        selectedSize = option.dataset.size;
 
-        selectedPrice=option.dataset.price;
+        selectedPrice = option.dataset.price;
 
     });
 
@@ -601,7 +640,7 @@ sizeOptions.forEach(option=>{
 ADD TO CART
 =========================== */
 
-confirmAddCart.addEventListener("click", () => {
+confirmAddCart?.addEventListener("click", () => {
 
     if (!selectedSize) {
 
@@ -640,17 +679,17 @@ confirmAddCart.addEventListener("click", () => {
 
     }
 
-    
+
 
     updateCart();
 
-sizeModal.classList.remove("active");
+    sizeModal.classList.remove("active");
 
-setTimeout(() => {
+    setTimeout(() => {
 
-    cartDrawer.classList.add("open");
+        cartDrawer.classList.add("open");
 
-}, 100);
+    }, 100);
 
     sizeModal.classList.remove("active");
 
@@ -674,6 +713,7 @@ RENDER CART
 const cartItems = document.getElementById("cartItems");
 
 function updateCart() {
+    if (!cartItems) return;
 
     updateCartCount();
 
@@ -702,9 +742,9 @@ function updateCart() {
     let totalPrice = 0;
     if (tapeAdded) {
 
-    totalPrice += 60;
+        totalPrice += 60;
 
-}
+    }
 
     cart.forEach((item, index) => {
 
@@ -780,7 +820,7 @@ function updateCart() {
     });
     /* DOUBLE-SIDED POSTER TAPE ADD-ON */
 
-cartHTML += `
+    cartHTML += `
 
     <div class="cart-addon">
 
@@ -843,9 +883,7 @@ cartHTML += `
 
                 <strong>
 
-                    ${
-
-    cart.reduce(
+                    ${cart.reduce(
 
         (total, item) =>
 
@@ -855,7 +893,7 @@ cartHTML += `
 
     ) + (tapeAdded ? 1 : 0)
 
-}
+        }
 
                 </strong>
 
@@ -953,49 +991,723 @@ PROCEED TO CHECKOUT
 
 const checkoutButton =
 
-document.querySelector(
+    document.querySelector(
 
-".checkout-btn"
+        ".checkout-btn"
 
-);
-
-
-checkoutButton.addEventListener(
-
-"click",
-
-()=>{
+    );
 
 
-if(cart.length === 0){
+checkoutButton?.addEventListener(
+
+    "click",
+
+    () => {
 
 
-alert(
-
-"Your cart is empty."
-
-);
+        if (cart.length === 0) {
 
 
-return;
+            alert(
 
+                "Your cart is empty."
+
+            );
+
+
+            return;
+
+
+        }
+
+
+        localStorage.setItem(
+
+            "cuPosterCart",
+
+            JSON.stringify(cart)
+
+        );
+
+
+        window.location.href =
+
+            "checkout.html";
+
+
+    });
+/* ==========================================================
+   ALL POSTERS PAGE — SEARCH
+========================================================== */
+
+const posterSearch =
+
+    document.getElementById("posterSearch");
+
+
+const clearPosterSearch =
+
+    document.getElementById("clearPosterSearch");
+
+
+const noPostersFound =
+
+    document.getElementById("noPostersFound");
+
+
+
+
+
+/* ==========================================================
+   FILTER POSTERS USING SEARCH
+========================================================== */
+
+function searchAllPosters() {
+
+    if (!posterSearch || !allPostersGrid) {
+
+        return;
+
+    }
+
+
+    const searchText =
+
+        posterSearch.value
+            .toLowerCase()
+            .trim();
+
+
+    const posterCards =
+
+        allPostersGrid
+            .querySelectorAll(".poster-card");
+
+
+    let matchingPosters = 0;
+
+
+    posterCards.forEach(card => {
+
+
+        const posterName =
+
+            card
+                .querySelector(".poster-title")
+                ?.textContent
+                .toLowerCase() || "";
+
+
+        const posterCategory =
+
+            card
+                .querySelector(".poster-category")
+                ?.textContent
+                .toLowerCase() || "";
+
+
+        const posterMatches =
+
+            posterName.includes(searchText) ||
+
+            posterCategory.includes(searchText);
+
+
+        if (posterMatches) {
+
+            card.style.display = "";
+
+            matchingPosters++;
+
+        }
+
+        else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+
+    /* UPDATE POSTER COUNT */
+
+    if (visiblePosterCount) {
+
+        visiblePosterCount.textContent =
+
+            matchingPosters;
+
+    }
+
+
+    /* SHOW OR HIDE CLEAR BUTTON */
+
+    if (clearPosterSearch) {
+
+        clearPosterSearch.classList.toggle(
+
+            "visible",
+
+            searchText.length > 0
+
+        );
+
+    }
+
+
+    /* SHOW NO RESULTS MESSAGE */
+
+    if (noPostersFound) {
+
+        noPostersFound.classList.toggle(
+
+            "active",
+
+            matchingPosters === 0
+
+        );
+
+    }
 
 }
 
 
-localStorage.setItem(
+/* ==========================================================
+   SEARCH WHILE USER TYPES
+========================================================== */
 
-"cuPosterCart",
+if (posterSearch) {
 
-JSON.stringify(cart)
+    posterSearch.addEventListener(
 
-);
+        "input",
+
+        searchAllPosters
+
+    );
+
+}
 
 
-window.location.href =
+/* ==========================================================
+   CLEAR SEARCH
+========================================================== */
 
-"checkout.html";
+if (clearPosterSearch) {
 
+    clearPosterSearch.addEventListener(
+
+        "click",
+
+        () => {
+
+
+            posterSearch.value = "";
+
+
+            searchAllPosters();
+
+
+            posterSearch.focus();
+
+
+        }
+
+    );
+
+}
+
+/* ==========================================================
+   CATEGORY PAGE SYSTEM
+========================================================== */
+
+const categoriesPageSection =
+    document.querySelector(".categories-page-section");
+
+const individualCategoryView =
+    document.getElementById("individualCategoryView");
+
+const categoryPageParameters =
+    new URLSearchParams(window.location.search);
+
+const selectedCategory =
+    categoryPageParameters.get("category");
+
+
+if (
+    categoriesPageSection &&
+    individualCategoryView &&
+    selectedCategory
+) {
+
+    categoriesPageSection.style.display = "none";
+
+    individualCategoryView.style.display = "block";
+
+
+    if (selectedCategory === "anime") {
+
+        individualCategoryView.innerHTML = `
+
+        <section class="individual-category-hero">
+
+            <div class="container">
+
+
+                <a
+                    href="categories.html"
+                    class="back-to-categories"
+                >
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    All Categories
+
+                </a>
+
+
+                <span class="featured-tag">
+
+                    <i class="fa-solid fa-fire"></i>
+
+                    ANIME COLLECTION
+
+                </span>
+
+
+                <h1>
+
+                    Anime Posters
+
+                </h1>
+
+
+                <p>
+
+                    Explore posters from your favourite
+                    anime series and characters.
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+        <!-- ANIME SUBCATEGORIES -->
+
+<section class="anime-collection-section">
+
+    <div class="container">
+
+        <div class="anime-section-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+
+                    EXPLORE ANIME
+
+                </span>
+
+                <h2>
+
+                    Browse by Anime
+
+                </h2>
+
+                <p>
+
+                    Choose your favourite anime series
+                    and discover its poster collection.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="anime-filter-buttons">
+
+            <button
+                class="anime-filter-btn active"
+                data-anime="all"
+            >
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                All Anime
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="naruto"
+            >
+
+                Naruto
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="one-piece"
+            >
+
+                One Piece
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="demon-slayer"
+            >
+
+                Demon Slayer
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="jujutsu-kaisen"
+            >
+
+                Jujutsu Kaisen
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="attack-on-titan"
+            >
+
+                Attack on Titan
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="dragon-ball"
+            >
+
+                Dragon Ball
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="bleach"
+            >
+
+                Bleach
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="haikyuu"
+            >
+
+                Haikyuu
+
+            </button>
+
+
+            <button
+                class="anime-filter-btn"
+                data-anime="blue-lock"
+            >
+
+                Blue Lock
+
+            </button>
+
+            <button class="anime-filter-btn" data-anime="death-note">
+    Death Note
+</button>
+
+<button class="anime-filter-btn" data-anime="solo-leveling">
+    Solo Leveling
+</button>
+
+<button class="anime-filter-btn" data-anime="tokyo-ghoul">
+    Tokyo Ghoul
+</button>
+
+<button class="anime-filter-btn" data-anime="chainsaw-man">
+    Chainsaw Man
+</button>
+
+<button class="anime-filter-btn" data-anime="tokyo-revengers">
+    Tokyo Revengers
+</button>
+
+<button class="anime-filter-btn" data-anime="black-clover">
+    Black Clover
+</button>
+
+<button class="anime-filter-btn" data-anime="vinland-saga">
+    Vinland Saga
+</button>
+
+<button class="anime-filter-btn" data-anime="hunter-x-hunter">
+    Hunter × Hunter
+</button>
+
+<button class="anime-filter-btn" data-anime="spy-x-family">
+    Spy × Family
+</button>
+
+<button class="anime-filter-btn" data-anime="my-hero-academia">
+    My Hero Academia
+</button>
+
+<button class="anime-filter-btn" data-anime="berserk">
+    Berserk
+</button>
+
+<button class="anime-filter-btn" data-anime="studio-ghibli">
+    Studio Ghibli
+</button>
+
+<button class="anime-filter-btn" data-anime="rezero">
+    Re:Zero
+</button>
+
+<button class="anime-filter-btn" data-anime="your-lie-in-april">
+    Your Lie in April
+</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ANIME POSTER COLLECTION -->
+
+<section class="anime-posters-section">
+
+    <div class="container">
+
+
+        <div class="anime-posters-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+
+                    POSTER COLLECTION
+
+                </span>
+
+                <h2 id="animeCollectionTitle">
+
+                    All Anime Posters
+
+                </h2>
+
+                <p id="animeCollectionDescription">
+
+                    Browse all available posters from
+                    our anime collection.
+
+                </p>
+
+            </div>
+
+
+            <span
+                class="anime-poster-count"
+                id="animePosterCount"
+            >
+
+                0 Posters
+
+            </span>
+
+        </div>
+
+
+
+        <div
+            class="anime-posters-grid"
+            id="animePostersGrid"
+        >
+
+            <!-- Anime poster cards will appear here -->
+
+        </div>
+
+
+        <div
+            class="anime-empty-state"
+            id="animeEmptyState"
+        >
+
+            <div class="anime-empty-icon">
+
+                <i class="fa-solid fa-images"></i>
+
+            </div>
+
+            <h3>
+
+                Posters Coming Soon
+
+            </h3>
+
+            <p>
+
+                We are adding posters to this collection.
+                Check back soon.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+    `;
+
+    }
+
+}
+
+/* ==========================================================
+   DISPLAY ANIME POSTERS
+========================================================== */
+
+const animePostersGrid =
+    document.getElementById("animePostersGrid");
+
+const animePosterCount =
+    document.getElementById("animePosterCount");
+
+const animeEmptyState =
+    document.getElementById("animeEmptyState");
+
+
+if (animePostersGrid) {
+
+    const animePosters = posters.filter(
+
+        poster => poster.category === "Anime"
+
+    );
+
+
+    animePosters.forEach(poster => {
+
+        animePostersGrid.innerHTML +=
+            createPosterCard(poster);
+
+    });
+
+
+    if (animePosterCount) {
+
+        animePosterCount.textContent =
+            `${animePosters.length} Posters`;
+
+    }
+
+
+    if (
+        animeEmptyState &&
+        animePosters.length > 0
+    ) {
+
+        animeEmptyState.style.display = "none";
+
+    }
+
+}
+
+/* ==========================================================
+   ANIME FILTER BUTTONS
+========================================================== */
+
+const animeFilterButtons =
+    document.querySelectorAll(".anime-filter-btn");
+
+
+animeFilterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        animeFilterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+
+        const selectedAnime =
+            button.dataset.anime;
+
+
+        let filteredPosters = [];
+
+
+        if (
+            selectedAnime === "all" ||
+            selectedAnime === "naruto"
+        ) {
+
+            filteredPosters = posters.filter(
+
+                poster =>
+                    poster.category === "Anime"
+
+            );
+
+        }
+
+
+        animePostersGrid.innerHTML = "";
+
+
+        filteredPosters.forEach(poster => {
+
+            animePostersGrid.innerHTML +=
+                createPosterCard(poster);
+
+        });
+
+
+        animePosterCount.textContent =
+            `${filteredPosters.length} Posters`;
+
+
+        if (filteredPosters.length === 0) {
+
+            animeEmptyState.style.display = "flex";
+
+        }
+
+        else {
+
+            animeEmptyState.style.display = "none";
+
+        }
+
+    });
 
 });
 

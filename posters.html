@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Posters | CU Poster Hub</title>
+
+    <meta
+        name="description"
+        content="Explore premium anime, movie, gaming, car and aesthetic posters at CU Poster Hub."
+    >
+
+    <!-- Favicon -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/logo/favicon.png"
+    >
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="posters-page">
+
+
+    <!-- =========================================
+    BACKGROUND GLOW
+    ========================================== -->
+
+    <div class="bg-glow glow-1"></div>
+
+    <div class="bg-glow glow-2"></div>
+
+
+    <!-- =========================================
+    NAVBAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="container">
+
+            <div class="nav-wrapper">
+
+
+                <!-- LOGO -->
+
+                <a href="index.html" class="logo">
+
+                    <div class="logo-icon">
+
+                        <img
+                            src="assets/logo/logo.png"
+                            alt="CU Poster Hub Logo"
+                        >
+
+                    </div>
+
+                </a>
+
+
+                <!-- NAVIGATION -->
+
+                <nav class="nav-links">
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
+
+                    <a
+                        href="posters.html"
+                        class="active"
+                    >
+
+                        Posters
+
+                    </a>
+
+
+                    <a href="categories.html">
+
+                        Categories
+
+                    </a>
+
+
+                    <a href="index.html#designIdeas">
+
+                        Design Ideas
+
+                    </a>
+
+
+                    <a href="#">
+
+                        About
+
+                    </a>
+
+
+                    <a href="#">
+
+                        Contact
+
+                    </a>
+
+                </nav>
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="nav-right">
+
+
+                    <button
+                        class="icon-btn"
+                        type="button"
+                        aria-label="Search posters"
+                    >
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+
+                    <button
+                        class="icon-btn cart-btn"
+                        type="button"
+                        aria-label="Open cart"
+                    >
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        <span id="cartCount">
+
+                            0
+
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+    ALL POSTERS PAGE
+    ========================================== -->
+
+    <main>
+
+
+        <section class="all-posters-hero">
+
+            <div class="container">
+
+
+                <span class="featured-tag">
+
+                    <i class="fa-solid fa-images"></i>
+
+                    EXPLORE OUR COLLECTION
+
+                </span>
+
+
+                <h1>
+
+                    Find the Perfect Poster
+
+                </h1>
+
+
+                <p>
+
+                    Explore premium anime, movies, cars,
+                    gaming and aesthetic posters selected
+                    specially for Chandigarh University students.
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+        POSTER COLLECTION
+        ========================================== -->
+
+        <section class="all-posters-section">
+
+            <div class="container">
+
+
+                <div class="all-posters-heading">
+
+
+                    <div>
+
+                        <h2>
+
+                            All Posters
+
+                        </h2>
+
+
+                        <p>
+
+                            Browse our complete poster collection.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- Posters will be added here later -->
+
+                <!-- =========================================
+POSTER SEARCH AND FILTERS
+========================================== -->
+
+<div class="poster-browser-controls">
+
+
+    <!-- SEARCH BAR -->
+
+    <div class="poster-search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="search"
+            id="posterSearch"
+            placeholder="Search posters, anime, movies..."
+            autocomplete="off"
+        >
+
+        <button
+            type="button"
+            id="clearPosterSearch"
+            aria-label="Clear search"
+        >
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- CATEGORY FILTERS -->
+
+    <div class="poster-category-filters">
+
+
+        <button
+            type="button"
+            class="poster-filter-btn active"
+            data-category="all"
+        >
+
+            <i class="fa-solid fa-border-all"></i>
+
+            All
+
+        </button>
+
+
+        <button
+            type="button"
+            class="poster-filter-btn"
+            data-category="anime"
+        >
+
+            <i class="fa-solid fa-fire"></i>
+
+            Anime
+
+        </button>
+
+
+        <button
+            type="button"
+            class="poster-filter-btn"
+            data-category="movies"
+        >
+
+            <i class="fa-solid fa-film"></i>
+
+            Movies
+
+        </button>
+
+
+        <button
+            type="button"
+            class="poster-filter-btn"
+            data-category="cars"
+        >
+
+            <i class="fa-solid fa-car-side"></i>
+
+            Cars
+
+        </button>
+
+
+        <button
+            type="button"
+            class="poster-filter-btn"
+            data-category="gaming"
+        >
+
+            <i class="fa-solid fa-gamepad"></i>
+
+            Gaming
+
+        </button>
+
+
+        <button
+            type="button"
+            class="poster-filter-btn"
+            data-category="aesthetic"
+        >
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Aesthetic
+
+        </button>
+
+
+    </div>
+
+
+    <!-- RESULTS AND SORT -->
+
+    <div class="poster-results-bar">
+
+
+        <p>
+
+            Showing
+
+            <strong id="visiblePosterCount">
+
+                0
+
+            </strong>
+
+            posters
+
+        </p>
+
+
+        
+
+
+    </div>
+
+
+</div>
+
+
+                <!-- =========================================
+ALL POSTERS GRID
+========================================== -->
+
+<div
+    class="all-posters-grid"
+    id="allPostersGrid"
+>
+
+    <!-- Poster cards will be generated by JavaScript -->
+
+</div>
+
+
+<!-- =========================================
+NO POSTERS FOUND
+========================================== -->
+
+<div
+    class="no-posters-found"
+    id="noPostersFound"
+>
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+
+    <h3>
+
+        No Posters Found
+
+    </h3>
+
+
+    <p>
+
+        Try searching with another poster name
+        or choose a different category.
+
+    </p>
+
+
+    <button
+        type="button"
+        id="resetPosterFilters"
+    >
+
+        <i class="fa-solid fa-rotate-left"></i>
+
+        Show All Posters
+
+    </button>
+
+</div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================
+    FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+
+            <div>
+
+                <h2>
+
+                    CU Poster Hub
+
+                </h2>
+
+
+                <p>
+
+                    Premium Posters for Chandigarh
+                    University Students.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+
+                    Quick Links
+
+                </h4>
+
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+
+                <a href="posters.html">
+
+                    Posters
+
+                </a>
+
+
+                <a href="categories.html">
+
+                    Categories
+
+                </a>
+
+
+                <a href="#">
+
+                    Contact
+
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+
+                    Contact
+
+                </h4>
+
+
+                <p>
+
+                    WhatsApp
+
+                </p>
+
+
+                <p>
+
+                    Instagram
+
+                </p>
+
+
+                <p>
+
+                    Email
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+    MAIN JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
