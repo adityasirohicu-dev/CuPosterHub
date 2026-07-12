@@ -148,18 +148,22 @@ document.addEventListener("click", (e) => {
 
     if (!cartDrawer || !cartButton) return;
 
-    const clickedInsideCart = e
-        .composedPath()
-        .includes(cartDrawer);
+    const clickedInsideCart =
+        e.composedPath().includes(cartDrawer);
 
-    const clickedCartButton = e
-        .composedPath()
-        .includes(cartButton);
+    const clickedCartButton =
+        e.composedPath().includes(cartButton);
+
+    const clickedAddToCart =
+        e.target.closest(
+            ".add-cart-btn, .product-add-cart-btn, #confirmAddCart"
+        );
 
     if (
         cartDrawer.classList.contains("open") &&
         !clickedInsideCart &&
-        !clickedCartButton
+        !clickedCartButton &&
+        !clickedAddToCart
     ) {
 
         cartDrawer.classList.remove("open");
