@@ -285,6 +285,7 @@ const posters = [
         name: "Naruto Poster 1",
         image: "images/anime/naruto/AN-NAR-0001-A3.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "🔥 Best Seller"
     },
 
@@ -293,6 +294,7 @@ const posters = [
         name: "Naruto Poster 2",
         image: "images/anime/naruto/AN-NAR-0002-A3.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "⭐ Trending"
     },
 
@@ -301,6 +303,7 @@ const posters = [
         name: "Naruto Poster 3",
         image: "images/anime/naruto/AN-NAR-0003-A2.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "🔥 Popular"
     },
 
@@ -309,6 +312,7 @@ const posters = [
         name: "Naruto Poster 4",
         image: "images/anime/naruto/AN-NAR-0004-A4.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "✨ New"
     },
 
@@ -317,6 +321,7 @@ const posters = [
         name: "Naruto Poster 5",
         image: "images/anime/naruto/AN-NAR-0005-A4.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "🔥 Best Seller"
     },
 
@@ -325,6 +330,7 @@ const posters = [
         name: "Naruto Poster 6",
         image: "images/anime/naruto/AN-NAR-0006-A3.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "⭐ Trending"
     },
 
@@ -333,6 +339,7 @@ const posters = [
         name: "Naruto Poster 7",
         image: "images/anime/naruto/AN-NAR-0007-A2.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "🔥 Popular"
     },
 
@@ -341,6 +348,7 @@ const posters = [
         name: "Naruto Poster 8",
         image: "images/anime/naruto/AN-NAR-0008-A3.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "✨ New"
     },
 
@@ -349,6 +357,7 @@ const posters = [
         name: "Naruto Poster 9",
         image: "images/anime/naruto/AN-NAR-0009-A4.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "🔥 Best Seller"
     },
 
@@ -357,6 +366,7 @@ const posters = [
         name: "Naruto Poster 10",
         image: "images/anime/naruto/AN-NAR-0010-A4.webp",
         category: "Anime",
+        series: "Naruto",
         badge: "⭐ Trending"
     }
 
@@ -372,64 +382,75 @@ function createPosterCard(poster) {
 
     return `
 
-<div class="poster-card" data-id="${poster.id}">
-
-<div class="poster-image poster-open">
-
-<img
-    src="${poster.image}"
-    alt="${poster.name}"
-    loading="lazy"
-    decoding="async"
+<div
+    class="poster-card"
+    data-id="${poster.id}"
 >
 
-<div class="poster-badge">
+    <a
+        href="product.html?id=${poster.id}"
+        class="poster-image poster-open"
+    >
 
-${poster.badge}
+        <img
+            src="${poster.image}"
+            alt="${poster.name}"
+            loading="lazy"
+            decoding="async"
+        >
 
-</div>
+        <div class="poster-badge">
 
-<div class="poster-category">
+            ${poster.badge}
 
-${poster.category}
+        </div>
 
-</div>
+        <div class="poster-category">
 
-</div>
+            ${poster.category}
 
-<div class="poster-info">
+        </div>
 
-<h3 class="poster-title">
+    </a>
 
-${poster.name}
 
-</h3>
+    <div class="poster-info">
 
-<div class="poster-price">
+        <h3 class="poster-title">
 
-<del>₹100</del>
+            ${poster.name}
 
-<span>Starting ₹15</span>
+        </h3>
 
-</div>
 
-<p class="poster-note">
+        <div class="poster-price">
 
-Click "Add To Cart" to select poster size.
+            <del>₹100</del>
 
-</p>
+            <span>Starting ₹15</span>
 
-<button
-class="poster-btn add-cart-btn"
-data-name="${poster.name}"
-data-image="${poster.image}"
->
+        </div>
 
-🛒 Add To Cart
 
-</button>
+        <p class="poster-note">
 
-</div>
+            Click "Add To Cart" to select poster size.
+
+        </p>
+
+
+        <button
+            type="button"
+            class="poster-btn add-cart-btn"
+            data-name="${poster.name}"
+            data-image="${poster.image}"
+        >
+
+            🛒 Add To Cart
+
+        </button>
+
+    </div>
 
 </div>
 
@@ -581,6 +602,11 @@ document.addEventListener("click", (e) => {
 
     };
 
+    if (!sizeModal || !modalPosterImage || !modalPosterName) {
+        console.error("Size popup HTML is missing from this page.");
+        return;
+    }
+
     modalPosterImage.src = selectedPoster.image;
 
     modalPosterName.textContent = selectedPoster.name;
@@ -687,7 +713,9 @@ confirmAddCart?.addEventListener("click", () => {
 
     setTimeout(() => {
 
-        cartDrawer.classList.add("open");
+        if (cartDrawer) {
+            cartDrawer.classList.add("open");
+        }
 
     }, 100);
 
@@ -713,9 +741,10 @@ RENDER CART
 const cartItems = document.getElementById("cartItems");
 
 function updateCart() {
-    if (!cartItems) return;
 
     updateCartCount();
+
+    if (!cartItems) return;
 
     if (cart.length === 0) {
 
@@ -1637,17 +1666,184 @@ if (animePostersGrid) {
 
 }
 
+
+
 /* ==========================================================
-   ANIME FILTER BUTTONS
+   ANIME FILTER BUTTONS + OPEN FILTER FROM URL
 ========================================================== */
 
 const animeFilterButtons =
     document.querySelectorAll(".anime-filter-btn");
 
 
+const selectedAnimeFromURL =
+    categoryPageParameters.get("anime") || "all";
+
+
+function showSelectedAnime(selectedAnime) {
+
+    let filteredPosters = [];
+
+
+    /* SHOW ALL ANIME POSTERS */
+
+    if (selectedAnime === "all") {
+
+        filteredPosters = posters.filter(
+
+            poster =>
+                poster.category === "Anime"
+
+        );
+
+    }
+
+
+    /* SHOW POSTERS FROM SELECTED ANIME */
+
+    else {
+
+        filteredPosters = posters.filter(
+
+            poster =>
+
+                poster.category === "Anime"
+
+                &&
+
+                poster.series
+                    .toLowerCase()
+                    .replaceAll(" ", "-")
+
+                === selectedAnime
+
+        );
+
+    }
+
+
+    /* CLEAR OLD POSTERS */
+
+    if (animePostersGrid) {
+
+        animePostersGrid.innerHTML = "";
+
+
+        /* CREATE COMPLETE POSTER CARDS */
+
+        filteredPosters.forEach(poster => {
+
+            animePostersGrid.innerHTML +=
+
+                createPosterCard(poster);
+
+        });
+
+    }
+
+
+    /* GET SELECTED ANIME NAME */
+
+    const selectedButton =
+
+        document.querySelector(
+
+            `.anime-filter-btn[data-anime="${selectedAnime}"]`
+
+        );
+
+
+    const selectedAnimeName =
+
+        selectedButton
+
+            ? selectedButton.textContent.trim()
+
+            : "All Anime";
+
+
+    /* CHANGE COLLECTION HEADING */
+
+    const animeCollectionTitle =
+
+        document.getElementById(
+
+            "animeCollectionTitle"
+
+        );
+
+
+    const animeCollectionDescription =
+
+        document.getElementById(
+
+            "animeCollectionDescription"
+
+        );
+
+
+    if (animeCollectionTitle) {
+
+        animeCollectionTitle.textContent =
+
+            selectedAnime === "all"
+
+                ? "All Anime Posters"
+
+                : `${selectedAnimeName} Posters`;
+
+    }
+
+
+    if (animeCollectionDescription) {
+
+        animeCollectionDescription.textContent =
+
+            selectedAnime === "all"
+
+                ? "Browse all available posters from our anime collection."
+
+                : `Browse all available posters from our ${selectedAnimeName} collection.`;
+
+    }
+
+
+    /* UPDATE POSTER NUMBER */
+
+    if (animePosterCount) {
+
+        animePosterCount.textContent =
+
+            `${filteredPosters.length} Posters`;
+
+    }
+
+
+    /* SHOW EMPTY MESSAGE */
+
+    if (animeEmptyState) {
+
+        animeEmptyState.style.display =
+
+            filteredPosters.length === 0
+
+                ? "flex"
+
+                : "none";
+
+    }
+
+}
+
+
+/* ==========================================================
+   FILTER WHEN USER CLICKS AN ANIME
+========================================================== */
+
 animeFilterButtons.forEach(button => {
 
     button.addEventListener("click", () => {
+
 
         animeFilterButtons.forEach(btn => {
 
@@ -1655,60 +1851,828 @@ animeFilterButtons.forEach(button => {
 
         });
 
+
         button.classList.add("active");
 
 
         const selectedAnime =
+
             button.dataset.anime;
 
 
-        let filteredPosters = [];
+        showSelectedAnime(
+
+            selectedAnime
+
+        );
 
 
-        if (
-            selectedAnime === "all" ||
-            selectedAnime === "naruto"
-        ) {
+        /* UPDATE URL WITHOUT RELOADING PAGE */
 
-            filteredPosters = posters.filter(
+        const newURL =
 
-                poster =>
-                    poster.category === "Anime"
+            selectedAnime === "all"
 
-            );
+                ? "categories.html?category=anime"
 
-        }
+                : `categories.html?category=anime&anime=${selectedAnime}`;
 
 
-        animePostersGrid.innerHTML = "";
+        window.history.replaceState(
 
+            {},
 
-        filteredPosters.forEach(poster => {
+            "",
 
-            animePostersGrid.innerHTML +=
-                createPosterCard(poster);
+            newURL
 
-        });
-
-
-        animePosterCount.textContent =
-            `${filteredPosters.length} Posters`;
-
-
-        if (filteredPosters.length === 0) {
-
-            animeEmptyState.style.display = "flex";
-
-        }
-
-        else {
-
-            animeEmptyState.style.display = "none";
-
-        }
+        );
 
     });
 
 });
 
-console.log("CU Poster Hub Version 3 Loaded Successfully 🚀");
+
+/* ==========================================================
+   AUTOMATICALLY OPEN ANIME FROM URL
+========================================================== */
+
+animeFilterButtons.forEach(button => {
+
+    button.classList.toggle(
+
+        "active",
+
+        button.dataset.anime ===
+        selectedAnimeFromURL
+
+    );
+
+});
+
+
+showSelectedAnime(
+
+    selectedAnimeFromURL
+
+);
+
+/* ==========================================================
+   COMPLETE PRODUCT PAGE SYSTEM
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ------------------------------------------------------
+       RUN ONLY ON PRODUCT.HTML
+    ------------------------------------------------------ */
+
+    if (!window.location.pathname.includes("product.html")) {
+        return;
+    }
+
+
+    /* ------------------------------------------------------
+       GET PRODUCT FROM URL
+    ------------------------------------------------------ */
+
+    const urlParams =
+        new URLSearchParams(window.location.search);
+
+    const productId =
+        Number(urlParams.get("id"));
+
+    const currentProduct =
+        posters.find(function (poster) {
+
+            return poster.id === productId;
+
+        });
+
+
+    if (!currentProduct) {
+
+        console.error(
+            "Poster not found. Product ID:",
+            productId
+        );
+
+        return;
+
+    }
+
+
+    /* ------------------------------------------------------
+       PRODUCT ELEMENTS
+    ------------------------------------------------------ */
+
+    const productMainImage =
+        document.getElementById(
+            "productMainImage"
+        );
+
+    const productName =
+        document.getElementById(
+            "productName"
+        );
+
+    const productBreadcrumbName =
+        document.getElementById(
+            "productBreadcrumbName"
+        );
+
+    const productCategory =
+        document.getElementById(
+            "productCategory"
+        );
+
+    const productBadge =
+        document.getElementById(
+            "productBadge"
+        );
+
+    const productSizeOptions =
+        document.getElementById(
+            "productSizeOptions"
+        );
+
+    const productSelectedPrice =
+        document.getElementById(
+            "productSelectedPrice"
+        );
+
+    const productAddToCart =
+        document.getElementById(
+            "productAddToCart"
+        );
+
+
+    /* ------------------------------------------------------
+       SHOW PRODUCT INFORMATION
+    ------------------------------------------------------ */
+
+    if (productMainImage) {
+
+        productMainImage.src =
+            currentProduct.image;
+
+        productMainImage.alt =
+            currentProduct.name;
+
+    }
+
+
+    if (productName) {
+
+        productName.textContent =
+            currentProduct.name;
+
+    }
+
+
+    if (productBreadcrumbName) {
+
+        productBreadcrumbName.textContent =
+            currentProduct.name;
+
+    }
+
+
+    if (productCategory) {
+
+        productCategory.textContent =
+            currentProduct.category;
+
+    }
+
+
+    if (productBadge) {
+
+        productBadge.textContent =
+            currentProduct.badge;
+
+    }
+
+
+    /* ======================================================
+       1. PRODUCT SIZE SELECTION
+    ====================================================== */
+
+    const productSizes = [
+
+        {
+            size: "A6",
+            price: 15,
+            dimensions: "10.5 × 14.8 cm"
+        },
+
+        {
+            size: "A5",
+            price: 25,
+            dimensions: "14.8 × 21 cm"
+        },
+
+        {
+            size: "A4",
+            price: 35,
+            dimensions: "21 × 29.7 cm"
+        },
+
+        {
+            size: "A3",
+            price: 55,
+            dimensions: "29.7 × 42 cm"
+        },
+
+        {
+            size: "A2",
+            price: 95,
+            dimensions: "42 × 59.4 cm"
+        }
+
+    ];
+
+
+    let selectedProductSize = null;
+
+    let selectedProductPrice = null;
+
+
+    if (productSizeOptions) {
+
+        productSizeOptions.innerHTML = "";
+
+
+        productSizes.forEach(function (option) {
+
+            const sizeButton =
+                document.createElement("button");
+
+
+            sizeButton.type = "button";
+
+            sizeButton.className =
+                "product-size-option";
+
+
+            sizeButton.innerHTML = `
+
+                <span>
+
+                    ${option.size}
+
+                </span>
+
+                <small>
+
+                    ${option.dimensions}
+
+                </small>
+
+                <strong>
+
+                    ₹${option.price}
+
+                </strong>
+
+            `;
+
+
+            sizeButton.addEventListener(
+                "click",
+                function () {
+
+
+                    document
+                        .querySelectorAll(
+                            ".product-size-option"
+                        )
+                        .forEach(function (button) {
+
+                            button.classList.remove(
+                                "active"
+                            );
+
+                        });
+
+
+                    sizeButton.classList.add(
+                        "active"
+                    );
+
+
+                    selectedProductSize =
+                        option.size;
+
+
+                    selectedProductPrice =
+                        option.price;
+
+
+                    if (productSelectedPrice) {
+
+                        productSelectedPrice
+                            .textContent =
+
+                            `${option.size} — ₹${option.price}`;
+
+                    }
+
+                }
+            );
+
+
+            productSizeOptions.appendChild(
+                sizeButton
+            );
+
+        });
+
+    }
+
+
+    /* ======================================================
+       2. PRODUCT PAGE ADD TO CART
+    ====================================================== */
+
+    if (productAddToCart) {
+
+        productAddToCart.addEventListener(
+            "click",
+            function () {
+
+
+                if (
+                    !selectedProductSize ||
+                    !selectedProductPrice
+                ) {
+
+                    alert(
+                        "Please select a poster size."
+                    );
+
+                    return;
+
+                }
+
+
+                const existingProduct =
+                    cart.find(function (item) {
+
+                        return (
+
+                            item.name ===
+                            currentProduct.name
+
+                            &&
+
+                            item.size ===
+                            selectedProductSize
+
+                        );
+
+                    });
+
+
+                if (existingProduct) {
+
+                    existingProduct.quantity++;
+
+                }
+
+                else {
+
+                    cart.push({
+
+                        name:
+                            currentProduct.name,
+
+                        image:
+                            currentProduct.image,
+
+                        size:
+                            selectedProductSize,
+
+                        price:
+                            Number(
+                                selectedProductPrice
+                            ),
+
+                        quantity: 1
+
+                    });
+
+                }
+
+
+                updateCart();
+
+
+                if (cartDrawer) {
+
+                    cartDrawer.classList.add(
+                        "open"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* ======================================================
+       3. PRODUCT IMAGE THUMBNAIL
+    ====================================================== */
+
+    const productThumbnails =
+        document.getElementById(
+            "productThumbnails"
+        );
+
+
+    if (
+        productThumbnails &&
+        productMainImage
+    ) {
+
+        productThumbnails.innerHTML = `
+
+            <button
+                type="button"
+                class="product-thumbnail active"
+            >
+
+                <img
+                    src="${currentProduct.image}"
+                    alt="${currentProduct.name}"
+                >
+
+            </button>
+
+        `;
+
+
+        const thumbnailButton =
+            productThumbnails.querySelector(
+                ".product-thumbnail"
+            );
+
+
+        thumbnailButton?.addEventListener(
+            "click",
+            function () {
+
+                productMainImage.src =
+                    currentProduct.image;
+
+            }
+        );
+
+    }
+
+
+    /* ======================================================
+       4. RELATED POSTERS
+    ====================================================== */
+
+    /* ======================================================
+    SMART RELATED POSTER LOGIC
+ 
+    Priority:
+    1. Same anime/series
+    2. Never show current poster
+    3. Show maximum four posters
+ ====================================================== */
+
+    const relatedPosters =
+
+        posters
+
+            .filter(function (poster) {
+
+                return (
+
+                    poster.id !==
+                    currentProduct.id
+
+                    &&
+
+                    poster.series ===
+                    currentProduct.series
+
+                );
+
+            })
+
+            .slice(0, 4);
+
+
+    const relatedSection =
+        document.createElement("section");
+
+
+    relatedSection.className =
+        "related-products-section";
+
+
+    relatedSection.innerHTML = `
+
+        <div class="container">
+
+            <div class="related-products-heading">
+
+    <div>
+
+        <span>
+
+            YOU MAY ALSO LIKE
+
+        </span>
+
+        <h2>
+
+            More From ${currentProduct.series}
+
+        </h2>
+
+        <p>
+
+            Discover more posters from
+            our ${currentProduct.series}
+            collection.
+
+        </p>
+
+    </div>
+
+
+    <a
+        href="categories.html?category=anime&anime=${currentProduct.series
+            .toLowerCase()
+            .replaceAll(" ", "-")}"
+        class="view-related-category"
+    >
+
+        View All ${currentProduct.series} Posters
+
+        <i
+            class="fa-solid fa-arrow-right"
+        ></i>
+
+    </a>
+
+</div>
+
+
+            <div
+                class="related-products-grid"
+            >
+
+                ${relatedPosters
+            .map(function (poster) {
+
+                return `
+
+                            <a
+                                href="product.html?id=${poster.id}"
+                                class="related-product-card"
+                            >
+
+                                <div
+                                    class="related-product-image"
+                                >
+
+                                    <img
+    src="${poster.image}"
+    alt="${poster.name}"
+    loading="lazy"
+    decoding="async"
+    width="300"
+    height="424"
+>
+
+                                </div>
+
+
+                                <div
+                                    class="related-product-info"
+                                >
+
+                                    <h3>
+
+                                        ${poster.name}
+
+                                    </h3>
+
+
+                                    <p>
+
+                                        Starting ₹15
+
+                                    </p>
+
+                                </div>
+
+                            </a>
+
+                        `;
+
+            })
+
+            .join("")}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const productMain =
+        document.querySelector(
+            ".product-main"
+        );
+
+
+    if (productMain) {
+
+        productMain.insertAdjacentElement(
+            "afterend",
+            relatedSection
+        );
+
+    }
+
+
+    /* ======================================================
+       5. SIZE GUIDE POPUP
+    ====================================================== */
+
+    const sizeGuideButton =
+        document.querySelector(
+            ".product-size-guide-btn"
+        );
+
+
+    const sizeGuideModal =
+        document.createElement("div");
+
+
+    sizeGuideModal.className =
+        "product-size-guide-modal";
+
+
+    sizeGuideModal.innerHTML = `
+
+        <div
+            class="product-size-guide-box"
+        >
+
+            <button
+                type="button"
+                class="close-product-size-guide"
+                aria-label="Close size guide"
+            >
+
+                <i
+                    class="fa-solid fa-xmark"
+                ></i>
+
+            </button>
+
+
+            <span
+                class="size-guide-label"
+            >
+
+                POSTER SIZE GUIDE
+
+            </span>
+
+
+            <h2>
+
+                Choose the Right Poster Size
+
+            </h2>
+
+
+            <p>
+
+                Compare the dimensions below
+                before choosing your poster.
+
+            </p>
+
+
+            <div
+                class="size-guide-list"
+            >
+
+                ${productSizes
+            .map(function (option) {
+
+                return `
+
+                            <div
+                                class="size-guide-row"
+                            >
+
+                                <strong>
+
+                                    ${option.size}
+
+                                </strong>
+
+
+                                <span>
+
+                                    ${option.dimensions}
+
+                                </span>
+
+
+                                <b>
+
+                                    ₹${option.price}
+
+                                </b>
+
+                            </div>
+
+                        `;
+
+            })
+
+            .join("")}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(
+        sizeGuideModal
+    );
+
+
+    sizeGuideButton?.addEventListener(
+        "click",
+        function () {
+
+            sizeGuideModal.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+
+    const closeSizeGuide =
+        sizeGuideModal.querySelector(
+            ".close-product-size-guide"
+        );
+
+
+    closeSizeGuide?.addEventListener(
+        "click",
+        function () {
+
+            sizeGuideModal.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+
+    sizeGuideModal.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                event.target ===
+                sizeGuideModal
+            ) {
+
+                sizeGuideModal.classList.remove(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+
+});
+
+
+
+console.log(
+    "CU Poster Hub Version 4 Loaded Successfully 🚀"
+);

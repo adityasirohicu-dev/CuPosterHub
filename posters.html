@@ -574,6 +574,131 @@ NO POSTERS FOUND
 
     </footer>
 
+        
+    <!-- ===================================================== -->
+<!-- POSTER SIZE POPUP -->
+<!-- ===================================================== -->
+
+<div class="size-modal" id="sizeModal">
+
+    <div class="size-box">
+
+        <button class="close-size-modal" id="closeSizeModal">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2>Select Poster Size</h2>
+
+        <p class="size-subtitle">
+            Choose your preferred size before adding to cart.
+        </p>
+
+        <div class="poster-preview">
+
+            <img
+                id="modalPosterImage"
+                src=""
+                alt="Poster Preview"
+            >
+
+        </div>
+
+        <h3 id="modalPosterName">
+            Poster
+        </h3>
+
+        <div class="size-options">
+
+            <div class="size-option" data-size="A6" data-price="15">
+
+                <span>A6</span>
+
+                <strong>₹15</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A5" data-price="25">
+
+                <span>A5</span>
+
+                <strong>₹25</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A4" data-price="35">
+
+                <span>A4</span>
+
+                <strong>₹35</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A3" data-price="55">
+
+                <span>A3</span>
+
+                <strong>₹55</strong>
+
+            </div>
+
+            <div class="size-option" data-size="A2" data-price="95">
+
+                <span>A2</span>
+
+                <strong>₹95</strong>
+
+            </div>
+
+        </div>
+
+        <button id="confirmAddCart" class="confirm-cart-btn">
+
+            <i class="fa-solid fa-cart-shopping"></i>
+
+            Add To Cart
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- ========================================= -->
+    <!-- Cart Drawer -->
+    <!-- ========================================= -->
+
+    <aside id="cartDrawer">
+
+        <div class="cart-header">
+
+            <h2>Your Cart</h2>
+
+            <button id="closeCart">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div id="cartItems">
+
+        </div>
+
+        <div class="cart-footer">
+
+            <button class="checkout-btn">
+
+    Proceed To Checkout
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+</button>
+
+        </div>
+ </aside>
+
+
 
     <!-- =========================================
     MAIN JAVASCRIPT

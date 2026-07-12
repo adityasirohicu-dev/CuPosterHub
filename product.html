@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Product | CU Poster Hub</title>
+
+    <meta
+        name="description"
+        content="View poster details and choose your preferred poster size at CU Poster Hub."
+    >
+
+
+    <!-- FAVICON -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="assets/logo/favicon.png"
+    >
+
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+
+    <!-- MAIN CSS -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="product-page">
+
+
+    <!-- =========================================
+    BACKGROUND GLOW
+    ========================================== -->
+
+    <div class="bg-glow glow-1"></div>
+
+    <div class="bg-glow glow-2"></div>
+
+
+
+    <!-- =========================================
+    NAVBAR
+    ========================================== -->
+
+    <header class="navbar">
+
+        <div class="container">
+
+            <div class="nav-wrapper">
+
+
+                <!-- LOGO -->
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+
+                    <div class="logo-icon">
+
+                        <img
+                            src="assets/logo/logo.png"
+                            alt="CU Poster Hub Logo"
+                        >
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- NAVIGATION -->
+
+                <nav class="nav-links">
+
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
+
+                    <a
+                        href="posters.html"
+                        class="active"
+                    >
+
+                        Posters
+
+                    </a>
+
+
+                    <a href="categories.html">
+
+                        Categories
+
+                    </a>
+
+
+                    <a href="index.html#designIdeas">
+
+                        Design Ideas
+
+                    </a>
+
+
+                    <a href="#">
+
+                        About
+
+                    </a>
+
+
+                    <a href="#">
+
+                        Contact
+
+                    </a>
+
+
+                </nav>
+
+
+
+                <!-- NAVBAR RIGHT SIDE -->
+
+                <div class="nav-right">
+
+
+                    <button
+                        class="icon-btn"
+                        type="button"
+                        aria-label="Search posters"
+                    >
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                    </button>
+
+
+
+                    <button
+                        class="icon-btn cart-btn"
+                        type="button"
+                        aria-label="Open cart"
+                    >
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+
+                        <span id="cartCount">
+
+                            0
+
+                        </span>
+
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+    PRODUCT PAGE
+    ========================================== -->
+
+    <main class="product-main">
+
+
+        <div class="container">
+
+
+            <!-- BREADCRUMB -->
+
+            <div class="product-breadcrumb">
+
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+
+                <a href="posters.html">
+
+                    Posters
+
+                </a>
+
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+
+                <span id="productBreadcrumbName">
+
+                    Poster
+
+                </span>
+
+
+            </div>
+
+
+
+            <!-- =========================================
+            PRODUCT SECTION
+            ========================================== -->
+
+            <section class="product-details-layout">
+
+
+
+                <!-- =========================================
+                PRODUCT IMAGE SIDE
+                ========================================== -->
+
+                <div class="product-gallery">
+
+
+                    <!-- MAIN PRODUCT IMAGE -->
+
+                    <div class="product-main-image">
+
+
+                        <img
+                            id="productMainImage"
+                            src=""
+                            alt="Poster"
+                        >
+
+
+                        <span
+                            class="product-image-badge"
+                            id="productBadge"
+                        >
+
+                            Premium Poster
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- PRODUCT IMAGE THUMBNAILS -->
+
+                    <div
+                        class="product-thumbnails"
+                        id="productThumbnails"
+                    >
+
+
+                        <!-- Images will be generated by JavaScript -->
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =========================================
+                PRODUCT INFORMATION SIDE
+                ========================================== -->
+
+                <div class="product-information">
+
+
+
+                    <!-- CATEGORY -->
+
+                    <span
+                        class="product-category-label"
+                        id="productCategory"
+                    >
+
+                        Anime
+
+                    </span>
+
+
+
+                    <!-- PRODUCT NAME -->
+
+                    <h1 id="productName">
+
+                        Loading Poster...
+
+                    </h1>
+
+
+
+                    <!-- RATING -->
+
+                    <div class="product-rating">
+
+
+                        <div class="product-stars">
+
+                            <i class="fa-solid fa-star"></i>
+
+                            <i class="fa-solid fa-star"></i>
+
+                            <i class="fa-solid fa-star"></i>
+
+                            <i class="fa-solid fa-star"></i>
+
+                            <i class="fa-solid fa-star"></i>
+
+                        </div>
+
+
+                        <span>
+
+                            Premium Quality Poster
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- PRICE -->
+
+                    <div class="product-price-area">
+
+
+                        <del id="productOriginalPrice">
+
+                            ₹100
+
+                        </del>
+
+
+                        <strong id="productStartingPrice">
+
+                            Starting ₹15
+
+                        </strong>
+
+
+                    </div>
+
+
+
+                    <!-- SHORT DESCRIPTION -->
+
+                    <p
+                        class="product-short-description"
+                        id="productDescription"
+                    >
+
+                        Premium-quality poster printed with sharp
+                        details and vibrant colours. Perfect for
+                        decorating your hostel room, study area
+                        or personal space.
+
+                    </p>
+
+
+
+                    <!-- DELIVERY INFORMATION -->
+
+                    <div class="product-delivery-note">
+
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+
+                        <div>
+
+
+                            <strong>
+
+                                Delivery Inside Chandigarh University
+
+                            </strong>
+
+
+                            <span>
+
+                                Fast order confirmation through WhatsApp
+
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                    SIZE SELECTION
+                    ========================================== -->
+
+                    <div class="product-option-section">
+
+
+                        <div class="product-option-heading">
+
+
+                            <h3>
+
+                                Select Poster Size
+
+                            </h3>
+
+
+                            <button
+                                type="button"
+                                class="product-size-guide-btn"
+                            >
+
+                                <i class="fa-solid fa-ruler-combined"></i>
+
+                                Size Guide
+
+                            </button>
+
+
+                        </div>
+
+
+
+                        <div
+                            class="product-size-options"
+                            id="productSizeOptions"
+                        >
+
+
+                            <!-- Sizes will be generated by JavaScript -->
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- SELECTED PRICE -->
+
+                    <div class="product-selected-price">
+
+
+                        <span>
+
+                            Selected Price
+
+                        </span>
+
+
+                        <strong id="productSelectedPrice">
+
+                            Select a size
+
+                        </strong>
+
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                    ADD TO CART
+                    ========================================== -->
+
+                    <button
+                        type="button"
+                        class="product-add-cart-btn"
+                        id="productAddToCart"
+                    >
+
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+
+                        Add To Cart
+
+
+                    </button>
+
+
+
+                    <!-- BUY INFORMATION -->
+
+                    <div class="product-benefits">
+
+
+                        <div>
+
+
+                            <i class="fa-solid fa-print"></i>
+
+
+                            <span>
+
+                                Premium Print Quality
+
+                            </span>
+
+
+                        </div>
+
+
+
+                        <div>
+
+
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                            <span>
+
+                                Upgrade Your Walls
+
+                            </span>
+
+
+                        </div>
+
+
+
+                        <div>
+
+
+                            <i class="fa-solid fa-bolt"></i>
+
+
+                            <span>
+
+                               Fast Delivery
+
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+    CART DRAWER
+    ========================================== -->
+
+    <aside id="cartDrawer">
+
+
+        <div class="cart-header">
+
+
+            <h2>
+
+                Your Cart
+
+            </h2>
+
+
+            <button
+                id="closeCart"
+                type="button"
+                aria-label="Close cart"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+
+        </div>
+
+
+
+        <div id="cartItems">
+
+
+            <!-- Cart products appear here -->
+
+
+        </div>
+
+
+
+        <div class="cart-footer">
+
+
+            <button
+                class="checkout-btn"
+                type="button"
+            >
+
+
+                Proceed To Checkout
+
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+
+            </button>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =========================================
+    JAVASCRIPT
+    ========================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
